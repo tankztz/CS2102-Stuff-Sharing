@@ -1,0 +1,1 @@
+insert into book values ('Photoshop Elements 9: The Missing Manual',640,'2010-01-01','978-1449389673');

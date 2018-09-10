@@ -47,7 +47,7 @@
         }
     }
     if (isset($_POST['run'])) {	// execute the update SQL command
-        $result = pg_query($db, "$_POST[user_command]");
+        $result = pg_query($db, "SELECT * FROM book where book_id = '$_POST[bookid]'");
         if (!$result) {
             echo "Execute failed!!";
             echo "result: $result";

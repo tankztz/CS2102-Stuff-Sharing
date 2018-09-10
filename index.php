@@ -11,6 +11,9 @@
       <li>Book ID:</li>
       <li><input type="text" name="bookid" /></li>
       <li><input type="submit" name="submit" /></li>
+      <li>Run pg command:</li>  
+      <li><input type='text' name='user_command'/></li>  
+      <li><input type='submit' name='run' /></li>		
     </form>
   </ul>
   <?php
@@ -24,7 +27,8 @@
     	<li><input type='text' name='bookid_updated' value='$row[book_id]' /></li>  
     	<li>Book Name:</li>  
     	<li><input type='text' name='book_name_updated' value='$row[name]' /></li>  
-    	<li>Price (USD):</li><li><input type='text' name='price_updated' value='$row[price]' /></li>  
+    	<li>Price (USD):</li>
+		<li><input type='text' name='price_updated' value='$row[price]' /></li>  
     	<li>Date of publication:</li>  
     	<li><input type='text' name='dop_updated' value='$row[date_of_publication]' /></li>  
     	<li><input type='submit' name='new' /></li>  
@@ -40,6 +44,16 @@
             echo $result;
         } else {
             echo "Update successful!";
+        }
+    }
+    if (isset($_POST['run'])) {	// execute the update SQL command
+        $result = pg_query($db, "$_POST[user_command]");
+        if (!$result) {
+            echo "Execute failed!!";
+            echo "result: $result";
+        } else {
+            echo "Execute successful!";
+            echo "result: $result";
         }
     }
     ?>  

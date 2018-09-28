@@ -1,6 +1,6 @@
-CREATE TABLE book (
-name VARCHAR(256) NOT NULL,
-price int NOT NULL,
-date_of_publication DATE,
-book_id VARCHAR(64) PRIMARY KEY
+CREATE TABLE news (
+        id int NOT NULL PRIMARY KEY,
+        title varchar(128) NOT NULL,
+        slug varchar(128) NOT NULL,
+        text text NOT NULL
 );

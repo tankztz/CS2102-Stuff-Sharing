@@ -1,20 +1,26 @@
-<!DOCTYPE html>
-<head>
-  <title>UPDATE PostgreSQL data with PHP</title>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <style>li {list-style: none;}</style>
-</head>
-<body>
-  <h2>Supply bookid and enter</h2>
-  <ul>
-    <form name="display" action="home.php" method="POST" >
-      <li>Book ID:</li>
-      <li><input type="text" name="bookid" /></li>
-      <li><input type="submit" name="submit" /></li>
-      <li>Run pg command:</li>
-      <li><input type='text' name='user_command'/></li>
-      <li><input type='submit' name='run' /></li>
-    </form>
-  </ul>
-</body>
-</html>
+<div id="content">
+  <div id="content-inner">
+  
+    <main id="contentbar">
+      <div class="article">
+        <p><script>generateText(12)</script></p>
+      </div>
+    </main>
+    
+    <nav id="sidebar">
+      <div class="widget">
+        <h3>Quick Links</h3>
+        <ul>
+        <li><a href="http://localhost/CS2102-Stuff-Sharing/index.php/users">Users</a></li>
+        <li><a href="http://localhost/CS2102-Stuff-Sharing/index.php/news">News</a></li>
+        <li><a href="#">Link 3</a></li>
+        <li><a href="#">Link 4</a></li>
+        <li><a href="#">Link 5</a></li>
+        </ul>
+      </div>
+    </nav>
+    
+    <div class="clr"></div>
+  </div>
+</div>
+		

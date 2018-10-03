@@ -13,9 +13,9 @@ class users extends CI_Controller {
                 $data['users'] = $this->users_model->get_users();
                 $data['title'] = 'USER';
         
-                $this->load->view('templates/header', $data);
+                $this->load->view('templates/sidebar_header', $data);
                 $this->load->view('users/index', $data);
-                $this->load->view('templates/footer');
+                $this->load->view('templates/sidebar_footer');
         }
 
         public function view($id = NULL)

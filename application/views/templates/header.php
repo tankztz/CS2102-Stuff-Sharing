@@ -1,6 +1,6 @@
 <html>
         <head>
-                <title>CodeIgniter Tutorial</title>
+                <title>CS2102-Stuff-Sharing</title>
         </head>
         <body>
 

@@ -10,3 +10,6 @@ The system allows people to borrow or lend stuff that they own (tools, appliance
 currently available:
 http://localhost/CS2102-Stuff-Sharing/index.php/users
 http://localhost/CS2102-Stuff-Sharing/index.php/news
+
+## Entity-relationship Diagram
+![Alt text](doc/resource/ERDiagram.png?raw=true "ER Diagram")

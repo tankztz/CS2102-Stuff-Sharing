@@ -75,7 +75,7 @@
 			<header id="header">
 				<div id="header-inner">	
 					<div id="logo">
-						<h1><a href="#">Shuli<span>ExchangeStation</span></a></h1>
+						<h1><a href="http://localhost/CS2102-Stuff-Sharing/index.php">Shuli<span>ExchangeStation</span></a></h1>
 					</div>
                                                 <div id="top-nav">
                                                         <ul>

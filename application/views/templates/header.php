@@ -75,7 +75,7 @@
 			<header id="header">
 				<div id="header-inner">	
 					<div id="logo">
-						<h1><a href="#">Cool<span>Logo</span></a></h1>
+						<h1><a href="#">Shuli<span>Exchange station</span></a></h1>
 					</div>
 					<div id="top-nav">
 						<ul>
@@ -90,6 +90,6 @@
 			</header>
 			<div class="feature">
 				<div class="feature-inner">
-				<h1>Heading</h1>
+				<h1><?php echo $title; ?></h1>
 				</div>
 			</div>

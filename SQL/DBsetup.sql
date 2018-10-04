@@ -43,7 +43,7 @@ bid_id VARCHAR(64) PRIMARY KEY,
 bidder VARCHAR(64) NOT NULL REFERENCES users(user_id),
 points NUMERIC,
 status INT NOT NULL, --{successful, fail, pending}
-post VARCHAR(64) NOT NULL REFERENCES post(postid),
+post VARCHAR(64) NOT NULL REFERENCES post(post_id),
 create_time TIMESTAMP DEFAULT NOW());
 
 CREATE TABLE loan(

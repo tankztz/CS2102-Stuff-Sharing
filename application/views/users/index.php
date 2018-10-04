@@ -8,7 +8,7 @@
                 <?php echo $users_item['points']; ?>
                 <?php echo $users_item['address']; ?>
         </div>
-        <p><a href="<?php echo site_url('users/'.$users_item['user_id']); ?>">View article</a></p>
+        <p><a href="<?php echo site_url('users/'.$users_item['user_id']); ?>">View Details</a></p>
         <p><?php echo site_url('users/'.$users_item['user_id']); ?></p>
 
 <?php endforeach; ?>

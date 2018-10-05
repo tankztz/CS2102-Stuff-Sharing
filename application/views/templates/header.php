@@ -82,7 +82,7 @@
                                                                 <li><a href="#">About</a></li>
                                                                 <li><a href="#">Contact</a></li>
                                                                 <li><a href="#">FAQ</a></li>
-                                                                <li><a href="#">Help</a></li>
+                                                                <li><a href="http://localhost/CS2102-Stuff-Sharing/index.php/users/create">Register</a></li>
                                                         </ul>
                                                 </div>
 					<div class="clr"></div>

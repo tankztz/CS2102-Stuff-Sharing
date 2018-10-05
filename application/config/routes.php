@@ -55,6 +55,7 @@ $route['news/create'] = 'news/create';
 $route['news/(:any)'] = 'news/view/$1';
 $route['news'] = 'news';
 
+$route['users/create'] = 'users/create';
 $route['users/(:any)'] = 'users/view/$1';
 $route['users'] = 'users';
 

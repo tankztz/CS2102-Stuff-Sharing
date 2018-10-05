@@ -8,7 +8,6 @@
         <form>
             <fieldset>
                 <legend><span class="number">1</span> Required Info</legend>
-                <input type="text" name="user_id" placeholder="Your id *">
                 <input type="text" name="username" placeholder="Your username *">
                 <input type="text" name="mobile" placeholder="Your mobile number *">
                 <input type="text" name="email" placeholder="Your email *">

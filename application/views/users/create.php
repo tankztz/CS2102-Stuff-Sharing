@@ -2,16 +2,19 @@
 
 <?php echo validation_errors(); ?>
 
-<?php echo form_open('news/create'); ?>
+<?php echo form_open('users/create'); ?>
 
     <div class="form-style-5">
         <form>
             <fieldset>
-                <legend><span class="number">1</span> new news</legend>
-                <input type="text" name="id" placeholder="News id *">
-                <input type="text" name="title" placeholder="News title *">
-                <input type="text" name="slug" placeholder="News slug *">
-                <input type="text" name="text" placeholder="News text *">
+                <legend><span class="number">1</span> Required Info</legend>
+                <input type="text" name="user_id" placeholder="Your id *">
+                <input type="text" name="username" placeholder="Your username *">
+                <input type="text" name="mobile" placeholder="Your mobile number *">
+                <input type="text" name="email" placeholder="Your email *">
+                <input type="text" name="password" placeholder="Your password *">
+                <legend><span class="number">2</span> Optional Info</legend>
+                <input type="text" name="address" placeholder="Your address">
             </fieldset>
             <input type="submit" name="submit" value="Create news item" />
         </form>

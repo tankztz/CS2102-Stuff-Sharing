@@ -56,7 +56,8 @@ class News extends CI_Controller {
         else
         {
             $this->news_model->set_news();
-            $this->load->view('news');
+            $data['title'] = 'SUCCESS';
+            $this->load->view('news/create', $data);
         }
     }
 }

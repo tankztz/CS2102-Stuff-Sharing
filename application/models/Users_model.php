@@ -27,7 +27,6 @@ class Users_model extends CI_Model {
         $points = 10;
 
         $data = array(
-        'user_id' => $this->input->post('user_id'),
         'username' => $this->input->post('username'),
         'mobile' => $this->input->post('mobile'),
         'email' => $this->input->post('email'),
@@ -38,6 +37,26 @@ class Users_model extends CI_Model {
         'address' => $this->input->post('address'),
         );
 
-        return $this->db->insert('users', $data);
+        $this->db->insert('users', $data);
+        return true;
     }
+
+    public function login_user($username, $password)
+    {
+        if (!$username && $password) {
+            return false;
+        }
+        $this->db->where(['username' => $username]);
+        $user = $this->db->get('users')->row(0);
+        if (!$user) {
+            return false;
+        }
+        
+        $db_password = $user->password;
+        if ($password == $db_password) {
+            return true;
+        }
+        return false;
+    }
+
 }

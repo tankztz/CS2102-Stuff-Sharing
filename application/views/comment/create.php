@@ -2,20 +2,19 @@
 
 <?php echo validation_errors(); ?>
 
-<?php echo form_open('users/create'); ?>
+<?php echo form_open('comment/create'); ?>
 
     <div class="form-style-5">
         <form>
             <fieldset>
                 <legend><span class="number">1</span> Required Info</legend>
-                <input type="text" name="username" placeholder="Your username *">
-                <input type="text" name="mobile" placeholder="Your mobile number *">
-                <input type="text" name="email" placeholder="Your email *">
-                <input type="text" name="password" placeholder="Your password *">
+                <input type="text" name="loan" placeholder="loan id *">
+                <input type="text" name="user_name" placeholder="user id *">
+                <input type="text" name="rating" placeholder="1-5 *">
                 <legend><span class="number">2</span> Optional Info</legend>
-                <input type="text" name="address" placeholder="Your address">
+                <input type="text" name="content" placeholder="your comment">
             </fieldset>
-            <input type="submit" name="submit" value="Create news item" />
+            <input type="submit" name="submit" value="Create comment" />
         </form>
     </div>
 

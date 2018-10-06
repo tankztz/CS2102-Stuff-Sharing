@@ -44,7 +44,6 @@ class users extends CI_Controller {
 
         $data['title'] = 'Register a users item';
 
-        $this->form_validation->set_rules('user_id', 'user_id', 'required');
         $this->form_validation->set_rules('username', 'username', 'required');
         $this->form_validation->set_rules('mobile', 'mobile', 'required');
         $this->form_validation->set_rules('email', 'email', 'required');
@@ -58,10 +57,49 @@ class users extends CI_Controller {
 
         }
         else
-        {
-            $this->users_model->set_users();
-            $data['title'] = 'SUCCESS';
-            $this->load->view('users/create', $data);
+        {   
+            $user = $this->users_model->set_users();
+            if ($user) {
+                $this->session->set_flashdata('flash_success', 'Your account has been created. You are now signed in.');
+                $this->session->set_userdata([
+                    'username' => $user->username,
+                    'logged_in' => true,
+            ]);
         }
+
+            redirect('post/index');
+        }
+    }
+
+    public function login()
+    {   
+        $data['title'] = 'Log In';
+
+        $this->form_validation->set_rules('password', 'password', 'required');
+        $this->form_validation->set_rules('username', 'username', 'required');
+
+        if ($this->form_validation->run() === FALSE)
+        {
+            $this->load->view('templates/header', $data);
+            $this->load->view('users/login');
+            $this->load->view('templates/footer');
+
+        }
+
+        else{
+        $username = $this->input->post('username');
+        $password = $this->input->post('password');
+        $user_id = $this->users_model->login_user($username, $password);
+        if (!$user_id) {
+            $this->session->set_flashdata('flash_danger', 'Invalid username or password');
+            return redirect('users/login');
+        }
+        $this->session->set_userdata([
+            'username' => $username,
+            'logged_in' => true,
+        ]);
+        $this->session->set_flashdata('flash_success', 'You are now logged in');
+        redirect('post/index');
+    }
     }
 }

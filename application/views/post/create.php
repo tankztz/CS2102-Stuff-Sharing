@@ -2,20 +2,20 @@
 
 <?php echo validation_errors(); ?>
 
-<?php echo form_open('users/create'); ?>
+<?php echo form_open('post/create'); ?>
 
     <div class="form-style-5">
         <form>
             <fieldset>
                 <legend><span class="number">1</span> Required Info</legend>
-                <input type="text" name="username" placeholder="Your username *">
-                <input type="text" name="mobile" placeholder="Your mobile number *">
-                <input type="text" name="email" placeholder="Your email *">
-                <input type="text" name="password" placeholder="Your password *">
+                <input type="text" name="title" placeholder="Title *">
+                <input type="text" name="item" placeholder="item *">
+                
                 <legend><span class="number">2</span> Optional Info</legend>
-                <input type="text" name="address" placeholder="Your address">
+                <input type="text" name="minimum_bid" placeholder="Minimum bid">
+                <input type="text" name="description" placeholder="Description ">
             </fieldset>
-            <input type="submit" name="submit" value="Create news item" />
+            <input type="submit" name="submit" value="New post" />
         </form>
     </div>
 

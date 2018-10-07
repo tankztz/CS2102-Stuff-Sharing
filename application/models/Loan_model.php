@@ -23,8 +23,8 @@ class Loan_model extends CI_Model {
         $this->load->helper('url');
 
         $status = 1;
-        $start_time = NULL;
-        $end_time = NULL;
+        $start_time = '2018-10-6';
+        $end_time = '2018-10-30';
 
         $data = array(
 

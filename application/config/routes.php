@@ -61,5 +61,30 @@ $route['users/create'] = 'users/create';
 $route['users/(:any)'] = 'users/view/$1';
 $route['users'] = 'users';
 
+$route['item/index'] = 'item/index';
+$route['item/create'] = 'item/create';
+$route['item/(:any)'] = 'item/view/$1';
+$route['item'] = 'item';
+
+$route['bid/index'] = 'bid/index';
+$route['bid/create'] = 'bid/create';
+$route['bid/(:any)'] = 'bid/view/$1';
+$route['bid'] = 'bid';
+
+$route['loan/index'] = 'loan/index';
+$route['loan/create'] = 'loan/create';
+$route['loan/(:any)'] = 'loan/view/$1';
+$route['loan'] = 'loan';
+
+$route['post/index'] = 'post/index';
+$route['post/create'] = 'post/create';
+$route['post/(:any)'] = 'post/view/$1';
+$route['post'] = 'post';
+
+$route['comment/index'] = 'comment/index';
+$route['comment/create'] = 'comment/create';
+$route['comment/(:any)'] = 'comment/view/$1';
+$route['comment'] = 'comment';
+
 $route['(:any)'] = 'pages/view/$1';
 $route['default_controller'] = 'pages/view';

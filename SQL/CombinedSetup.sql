@@ -1,3 +1,6 @@
+-- DEPRECATED
+-- DO NOT UPDATE, UPDATE DBsetup.sql instead
+
 
 CREATE TABLE users(
 user_id SERIAL PRIMARY KEY ,

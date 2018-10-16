@@ -2,9 +2,14 @@
   <div id="content-inner">
   
     <main id="contentbar">
-      <div class="article">
-        <p><script>generateText(12)</script></p>
-      </div>
+        <div class="wrap">
+            <div class="search">
+                <input type="text" class="searchTerm" placeholder="What are you looking for?">
+                <button type="submit" class="searchButton">
+                    <i class="fa fa-search"></i>
+                </button>
+            </div>
+        </div>
     </main>
     
     <nav id="sidebar">

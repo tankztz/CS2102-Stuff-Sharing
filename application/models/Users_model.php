@@ -54,9 +54,18 @@ class Users_model extends CI_Model {
         
         $db_password = $user->password;
         if ($password == $db_password) {
-            return true;
+            return $user->user_id;
         }
         return false;
     }
 
+    public function get_id($username)
+    {
+        if (!$username) {
+            return false;
+        }
+        $this->db->where(['username' => $username]);
+        $user = $this->db->get('users')->row(0);
+        return $user->user_id;
+    }
 }

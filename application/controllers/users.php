@@ -85,21 +85,37 @@ class users extends CI_Controller {
             $this->load->view('templates/footer');
 
         }
-
-        else{
-        $username = $this->input->post('username');
-        $password = $this->input->post('password');
-        $user_id = $this->users_model->login_user($username, $password);
-        if (!$user_id) {
-            $this->session->set_flashdata('flash_danger', 'Invalid username or password');
-            return redirect('users/login');
+        else 
+        {
+            $username = $this->input->post('username');
+            $password = $this->input->post('password');
+            $user_id = $this->users_model->login_user($username, $password);
+            if (!$user_id) {
+                $this->session->set_flashdata('flash_danger', 'Invalid username or password');
+                return redirect('users/login');
+            }
+            $this->session->set_userdata([
+                'username' => $username,
+                'user_id' => $user_id,
+                'logged_in' => true,
+            ]);
+            $this->session->set_flashdata('flash_success', 'You are now logged in');
+            redirect('post/index');
         }
-        $this->session->set_userdata([
-            'username' => $username,
-            'logged_in' => true,
-        ]);
-        $this->session->set_flashdata('flash_success', 'You are now logged in');
-        redirect('post/index');
     }
+
+    
+    public function current()
+    {   
+        $username = $this->session->userdata('username');
+        $user_id = $this->users_model->get_id($username);
+        redirect('users/'.$user_id);
     }
+
+    public function logout()
+    {   
+        $session_items = array('username', 'user_id', 'logged_in');
+        $this->session->unset_userdata($session_items);
+    }
+    
 }

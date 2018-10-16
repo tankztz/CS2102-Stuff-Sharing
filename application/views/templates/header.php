@@ -82,7 +82,12 @@
                                                                 <li><a href="#">About</a></li>
                                                                 <li><a href="#">Contact</a></li>
                                                                 <li><a href="#">FAQ</a></li>
-                                                                <li><a href="http://localhost/CS2102-Stuff-Sharing/index.php/users/create">Register</a></li>
+                                                                <?php if(!$this->session->userdata('logged_in')): ?>
+                                                                    <li><a href="http://localhost/CS2102-Stuff-Sharing/index.php/users/create">Register</a></li>
+                                                                <?php else: ?>
+                                                                    <li><a href="http://localhost/CS2102-Stuff-Sharing/index.php/users/logout">Log out</a></li>
+                                                                    <li><a href="http://localhost/CS2102-Stuff-Sharing/index.php/users/current"><?php echo $this->session->userdata('username'); ?></a></li>
+                                                                <?php endif; ?>
                                                         </ul>
                                                 </div>
 					<div class="clr"></div>

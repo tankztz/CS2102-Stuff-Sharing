@@ -18,6 +18,17 @@ class Item_model extends CI_Model {
         return $query->row_array();
     }
     
+    public function get_my_item($user_id = FALSE)
+    {
+        if ($user_id === FALSE)
+        {
+            return NULL;
+        }
+
+        $query = $this->db->get_where('item', array('owner' => $user_id));
+        return $query->row_array();
+    }
+    
     public function set_item()
     {
         $this->load->helper('url');

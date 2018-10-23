@@ -5,6 +5,7 @@ class users extends CI_Controller {
     {
         parent::__construct();
         $this->load->model('users_model');
+        $this->load->model('item_model');
         $this->load->helper('url_helper');
     }
 
@@ -32,7 +33,31 @@ class users extends CI_Controller {
         $data['title'] = $data['users_item']['username'];
     
         $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar_header', $data);
         $this->load->view('users/view', $data);
+        $this->load->view('templates/sidebar_footer_users');
+        $this->load->view('templates/footer');
+    }
+
+    public function mydata($datatype = NULL)
+    {
+        //TODO: handle datatype, display different kind of items on current user page
+        
+        $user_id = $this->session->userdata('user_id');
+        
+        $data['item_item'] = $this->item_model->get_my_item($user_id);
+        
+        if (empty($data['item_item']))
+        {
+            //TODO: general message page
+        }
+
+        $data['title'] = "My item";
+    
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar_header', $data);
+        $this->load->view('item/view', $data);
+        $this->load->view('templates/sidebar_footer_users');
         $this->load->view('templates/footer');
     }
 
@@ -109,7 +134,7 @@ class users extends CI_Controller {
     {   
         $username = $this->session->userdata('username');
         $user_id = $this->users_model->get_id($username);
-        redirect('users/'.$user_id);
+        $this->view($user_id);
     }
 
     public function logout()

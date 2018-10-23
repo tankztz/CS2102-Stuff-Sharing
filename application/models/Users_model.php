@@ -68,4 +68,19 @@ class Users_model extends CI_Model {
         $user = $this->db->get('users')->row(0);
         return $user->user_id;
     }
+
+    public function is_logged_in($id)
+    {
+        return ($id == $this->session->userdata('user_id'));
+    }
+
+    public function get_current_user_data($datatype)
+    {
+        if (!$datatype) {
+            return false;
+        }
+        $this->db->where(['username' => $username]);
+        $user = $this->db->get('users')->row(0);
+        return $user->user_id;
+    }
 }

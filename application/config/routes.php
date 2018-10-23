@@ -59,6 +59,7 @@ $route['users/login'] = 'users/login';
 $route['users/index'] = 'users/index';
 $route['users/create'] = 'users/create';
 $route['users/current'] = 'users/current';
+$route['users/current/(:any)'] = 'users/mydata/$1';
 $route['users/logout'] = 'users/logout';
 $route['users/(:any)'] = 'users/view/$1';
 $route['users'] = 'users';

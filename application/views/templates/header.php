@@ -29,13 +29,13 @@
                                                         <ul>
                                                                 <li><a href="#">About</a></li>
                                                                 <li><a href="#">Contact</a></li>
-                                                                <li><a href="#"><?php echo base_url(); ?></a></li>
+                                                                <li><a href="#"><?php echo "testbutton" ?></a></li>
                                                                 <?php if(!$this->session->userdata('logged_in')): ?>
-                                                                    <li><a href="<?php echo base_url(); ?>/index.php/users/create">Register</a></li>
-                                                                    <li><a href="<?php echo base_url(); ?>/index.php/users/create">Login</a></li>
+                                                                    <li><a href="<?php echo base_url(); ?>index.php/users/create">Register</a></li>
+                                                                    <li><a href="<?php echo base_url(); ?>index.php/users/create">Login</a></li>
                                                                 <?php else: ?>
-                                                                    <li><a href="<?php echo base_url(); ?>/index.php/users/logout">Logout</a></li>
-                                                                    <li><a href="<?php echo base_url(); ?>/index.php/users/current"><?php echo $this->session->userdata('username'); ?></a></li>
+                                                                    <li><a href="<?php echo base_url(); ?>index.php/users/logout">Logout</a></li>
+                                                                    <li><a href="<?php echo base_url(); ?>index.php/users/current"><?php echo $this->session->userdata('username'); ?></a></li>
                                                                 <?php endif; ?>
                                                         </ul>
                                                 </div>

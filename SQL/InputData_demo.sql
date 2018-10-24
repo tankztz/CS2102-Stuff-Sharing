@@ -1,3 +1,5 @@
+ALTER SEQUENCE users_user_id_seq RESTART WITH 1
+
 insert into users (user_id, username, mobile, email, password, admin) values (DEFAULT, 'cs2102', '3016779446', 'cs2102@nus.com', '123456789', true);
 insert into users (user_id, username, mobile, email, password, admin) values (DEFAULT, 'fbenninger1', '4345464198', 'mbarns1@mysql.com', 'UC2pBghtlp', false);
 insert into users (user_id, username, mobile, email, password, admin) values (DEFAULT, 'iyashnov2', '5046215169', 'gmccullagh2@howstuffworks.com', 'ahpMnw12jOwo', false);
@@ -18,6 +20,8 @@ insert into users (user_id, username, mobile, email, password, admin) values (DE
 insert into users (user_id, username, mobile, email, password, admin) values (DEFAULT, 'finnerstoneh', '4477532736', 'golehaneh@bravesites.com', 'of0xI2y', false);
 insert into users (user_id, username, mobile, email, password, admin) values (DEFAULT, 'athurleyi', '9744433173', 'bscrinei@sciencedaily.com', 'AnSHacX', false);
 insert into users (user_id, username, mobile, email, password, admin) values (DEFAULT, 'test', '2704164116', 'test@nus.com', '123456', true);
+
+ALTER SEQUENCE item_item_id_seq RESTART WITH 1
 
 insert into item (item_id, name, owner, category, description) values (DEFAULT, 'Book', 14, 'ALL', 'useful');  --pick
 insert into item (item_id, name, owner, category, description) values (DEFAULT, 'Shiratamako - Rice Flour', 6, 'ALL', 'good');
@@ -120,6 +124,9 @@ insert into item (item_id, name, owner, category, description) values (DEFAULT, 
 insert into item (item_id, name, owner, category, description) values (DEFAULT, 'Butter Balls Salted', 1, 'ALL', 'good');
 insert into item (item_id, name, owner, category, description) values (DEFAULT, 'Skateboard Shoes', 18, 'ALL', 'cool');  --pick 
 
+
+ALTER SEQUENCE post_post_id_seq RESTART WITH 1
+
 insert into post (post_id, title, item, start_time, end_time, description, delivery, status) values (DEFAULT, 'useful book2', 1, '2018-08-26 16:25:22', '2018-11-10 18:56:11', 'Joq good', false, true);
 insert into post (post_id, title, item, start_time, end_time, description, delivery, status) values (DEFAULT, 'nice shirt2', 11, '2018-08-03 18:52:48', '2018-12-15 09:39:44', 'Uml good', false, true);
 insert into post (post_id, title, item, start_time, end_time, description, delivery, status) values (DEFAULT, 'good shoes2', 21, '2018-12-16 23:59:29', '2018-12-29 20:04:46', 'Yda good', false, true);
@@ -177,11 +184,15 @@ insert into bid (bidder, points, post) values (14, 3, 10);
 insert into bid (bidder, points, post) values (10, 10, 10);
 insert into bid (bidder, points, post) values (2, 13, 10); 
 
+ALTER SEQUENCE loan_loan_id_seq RESTART WITH 1
+
 insert into loan (loan_id, bidder, post, start_time, end_time) values (DEFAULT, 2, 6, '2018-08-05 22:27:13', '2018-12-30 02:09:23');
 insert into loan (loan_id, bidder, post, start_time, end_time) values (DEFAULT, 3, 7, '2018-02-25 22:41:40', '2018-12-01 21:55:10');
 insert into loan (loan_id, bidder, post, start_time, end_time) values (DEFAULT, 3, 8, '2018-03-21 18:47:58', '2018-11-18 05:06:38');
 insert into loan (loan_id, bidder, post, start_time, end_time) values (DEFAULT, 7, 9, '2017-10-28 05:18:54', '2018-11-22 15:12:24');
 insert into loan (loan_id, bidder, post, start_time, end_time) values (DEFAULT, 2, 10, '2018-07-06 02:00:39', '2018-12-23 05:11:38');
+
+ALTER SEQUENCE comment_comment_id_seq RESTART WITH 1
 
 insert into comment (comment_id, loan, user_name, content, rating) values (DEFAULT, 1, 9, 'useful', 4);
 insert into comment (comment_id, loan, user_name, content, rating) values (DEFAULT, 2, 3, 'not nice', 2);

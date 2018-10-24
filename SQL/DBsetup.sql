@@ -42,8 +42,8 @@ CREATE TABLE loan(
 loan_id SERIAL PRIMARY KEY,
 bidder INTEGER NOT NULL REFERENCES users(user_id),
 post INTEGER NOT NULL REFERENCES post(post_id),
-end_time TIMESTAMP NOT NULL,
-create_time TIMESTAMP DEFAULT Now());
+start_time TIMESTAMP DEFAULT Now(),
+end_time TIMESTAMP NOT NULL);
 
 
 CREATE TABLE comment( 

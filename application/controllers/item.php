@@ -7,7 +7,7 @@ class item extends CI_Controller {
 
         if (!$this->session->userdata('logged_in')) {
             $this->session->set_flashdata('flash_danger', 'Please login to view this page');
-            redirect('users/login');
+            redirect('management/login');
         }
         else{
             $this->load->model('item_model');
@@ -75,7 +75,7 @@ class item extends CI_Controller {
 
         $this->form_validation->set_rules('itemname', 'itemname', 'required');
         $this->form_validation->set_rules('category', 'category', 'required');
-        $this->form_validation->set_rules('owner', 'owener', 'required');
+
 
         if ($this->form_validation->run() === FALSE)
         {

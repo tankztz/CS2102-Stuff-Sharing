@@ -2,16 +2,20 @@
 
 <?php echo validation_errors(); ?>
 
-<?php echo form_open('users/login'); ?>
+<?php echo form_open('management/create'); ?>
 
     <div class="form-style-5">
         <form>
             <fieldset>
                 <legend><span class="number">1</span> Required Info</legend>
-                <input type="text" name="username" placeholder="username *">
-                <input type="text" name="password" placeholder="password *">
+                <input type="text" name="username" placeholder="Your username *">
+                <input type="text" name="mobile" placeholder="Your mobile number *">
+                <input type="text" name="email" placeholder="Your email *">
+                <input type="text" name="password" placeholder="Your password *">
+                <legend><span class="number">2</span> Optional Info</legend>
+                <input type="text" name="address" placeholder="Your address">
             </fieldset>
-            <input type="submit" name="submit" value="submit" />
+            <input type="submit" name="submit" value="Create news item" />
         </form>
     </div>
 

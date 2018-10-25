@@ -14,9 +14,9 @@ h1, h2, h3, h4, h5, h6 {color:darkgreen;}
 #header-inner { margin:0 auto; padding:0; width:970px;}
 
 /* Feature */
-.feature { background:green;padding:18px;}
+.feature { background:green;padding:1px;}
 .feature-inner { margin:auto;width:970px; }
-.feature-inner h1 {color:#DAE9BC;font-size:32px;}
+.feature-inner h1 {color:#DAE9BC;font-size:20px;}
 
 /* Menu */
 #top-nav { margin:0 auto; padding:0px 0 0; height:37px; float:right;}

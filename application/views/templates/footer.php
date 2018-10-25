@@ -1,4 +1,4 @@
-
+<!-- 
 			<div id="footerblurb">
 				<div id="footerblurb-inner">
 				
@@ -17,7 +17,7 @@
 					
 					<div class="clr"></div>
 				</div>
-			</div>
+			</div> -->
 			<footer id="footer">
 				<div id="footer-inner">
 					<p>&copy; Copyright <a href="#">Your Site</a> &#124; <a href="#">Terms of Use</a> &#124; <a href="#">Privacy Policy</a></p>

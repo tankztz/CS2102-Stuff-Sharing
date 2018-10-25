@@ -6,6 +6,7 @@
         <title>Fixed Width 1 Green</title>
         <link rel="stylesheet" href="<?php echo base_url(); ?>/asserts/css/templetebase.css">
         <link rel="stylesheet" href="<?php echo base_url(); ?>/asserts/css/all.min.css">
+        <link rel="stylesheet" href="<?php echo base_url(); ?>/asserts/css/bootstrap.min.css">
 		<script type="text/javascript">
 			/* =============================
 			This script generates sample text for the body content. 

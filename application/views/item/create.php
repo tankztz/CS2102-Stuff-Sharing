@@ -9,7 +9,6 @@
             <fieldset>
                 <legend><span class="number">1</span> Required Info</legend>
                 <input type="text" name="itemname" placeholder="Your item *">
-                <input type="text" name="owner" placeholder="Owner's user ID *">
                 <input type="text" name="category" placeholder="Category of the item *">
                 <legend><span class="number">2</span> Optional Info</legend>
                 <input type="text" name="description" placeholder="Description">

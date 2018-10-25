@@ -39,7 +39,7 @@ class Item_model extends CI_Model {
         $data = array(
 
         'name' => $this->input->post('itemname'),
-        'owner' => $this->input->post('owner'),
+        'owner' => $this->session->userdata('user_id'),
         'category' => $this->input->post('category'),
         'description' => $this->input->post('description'),
         'status' => $status,

@@ -11,6 +11,7 @@ class post extends CI_Controller {
         }
         else{
             $this->load->model('post_model');
+            $this->load->model('item_model');
             $this->load->helper('url_helper');
         }
     }
@@ -54,10 +55,17 @@ class post extends CI_Controller {
         $this->form_validation->set_rules('title', 'title', 'required');
         $this->form_validation->set_rules('item', 'item', 'required');
 
+        $user_id = $this->session->userdata('user_id');
+        $data['item'] = $this->item_model->get_my_item($user_id);
+        if (empty($data['item']))
+        {
+            redirect('item/create');
+        }
+
         if ($this->form_validation->run() === FALSE)
         {
             $this->load->view('templates/header', $data);
-            $this->load->view('post/create');
+            $this->load->view('post/create',$data);
             $this->load->view('templates/footer');
 
         }
@@ -65,7 +73,9 @@ class post extends CI_Controller {
         {
             $this->post_model->set_post();
             $data['title'] = 'SUCCESS';
+            $this->load->view('templates/header', $data);
             $this->load->view('post/create', $data);
+            $this->load->view('templates/footer');
         }
     }
 }

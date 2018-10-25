@@ -32,11 +32,9 @@ class Post_model extends CI_Model {
         'title' => $this->input->post('title'),
         'item' => $this->input->post('item'),
         'description' => $this->input->post('description'),
-        'minimum_bid' => $this->input->post('minimum_bid'),
         'delivery' => $delivery,
         'start_time' => $start_time,
         'end_time' => $end_time,
-        'biding_period' => $biding_period,
         'status' => $status,
         );
 

@@ -23,7 +23,6 @@ class Users_model extends CI_Model {
         $this->load->helper('url');
 
         $admin = FALSE;
-        $create_time = NULL;
         $points = 10;
 
         $data = array(
@@ -32,7 +31,6 @@ class Users_model extends CI_Model {
         'email' => $this->input->post('email'),
         'password' => $this->input->post('password'),
         'admin' => $admin,
-        'create_time' => $create_time,
         'points' => $points,
         'address' => $this->input->post('address'),
         );

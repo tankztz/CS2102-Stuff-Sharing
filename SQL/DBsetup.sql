@@ -12,7 +12,7 @@ address VARCHAR(64));
 CREATE TABLE item(
 item_id SERIAL PRIMARY KEY ,
 name VARCHAR(64) NOT NULL,
-owner INTEGER REFERENCES users(user_id),
+owner INTEGER REFERENCES users(user_id) ON DELETE CASCADE,
 category VARCHAR(64) NOT NULL,
 description VARCHAR(64),
 photo bytea);
@@ -21,7 +21,7 @@ photo bytea);
 CREATE TABLE post(
 post_id SERIAL PRIMARY KEY,
 title VARCHAR(64) NOT NULL,
-item INTEGER NOT NULL REFERENCES item(item_id),
+item INTEGER NOT NULL REFERENCES item(item_id) ON DELETE CASCADE,
 start_time TIMESTAMP,
 end_time TIMESTAMP,
 create_time TIMESTAMP DEFAULT NOW(),
@@ -33,23 +33,24 @@ status BOOLEAN);  --{expire or available}
   
 
 CREATE TABLE bid(
-bidder INTEGER NOT NULL REFERENCES users(user_id),
-post INTEGER NOT NULL REFERENCES post(post_id),
+bidder INTEGER NOT NULL REFERENCES users(user_id) ON DELETE CASCADE,
+post INTEGER NOT NULL REFERENCES post(post_id) ON DELETE CASCADE,
 points NUMERIC,
-create_time TIMESTAMP DEFAULT NOW());
+create_time TIMESTAMP DEFAULT NOW())
+PRYMARY KEY(bidder, post);
 
 CREATE TABLE loan(
 loan_id SERIAL PRIMARY KEY,
-bidder INTEGER NOT NULL REFERENCES users(user_id),
-post INTEGER NOT NULL REFERENCES post(post_id),
+bidder INTEGER NOT NULL REFERENCES users(user_id) ON DELETE CASCADE,
+post INTEGER NOT NULL REFERENCES post(post_id) ON DELETE CASCADE,
 start_time TIMESTAMP DEFAULT Now(),
 end_time TIMESTAMP NOT NULL);
 
 
 CREATE TABLE comment( 
 comment_id SERIAL PRIMARY KEY,
-loan INTEGER NOT NULL REFERENCES loan(loan_id),
-user_name INTEGER NOT NULL REFERENCES users(user_id),
+loan INTEGER NOT NULL REFERENCES loan(loan_id) ON DELETE CASCADE,
+user_name INTEGER NOT NULL REFERENCES users(user_id) ON DELETE CASCADE,
 content VARCHAR(200),
 rating NUMERIC NOT NULL CHECK (rating>=0 AND rating<=5));
 

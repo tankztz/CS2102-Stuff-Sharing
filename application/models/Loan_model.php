@@ -18,20 +18,15 @@ class Loan_model extends CI_Model {
         return $query->row_array();
     }
     
-    public function set_loan()
+    public function set_loan($post_id = NULL , $user_id = NULL)
     {
         $this->load->helper('url');
-
-        $status = 1;
-        $start_time = '2018-10-6';
         $end_time = '2018-10-30';
 
         $data = array(
 
-        'post' => $this->input->post('post'),
-        'bid' => $this->input->post('bid'),
-        'status' => $status,
-        'start_time' => $start_time,
+        'post' => $post_id,
+        'bidder' => $user_id,
         'end_time' => $end_time,
         );
 

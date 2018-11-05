@@ -22,14 +22,11 @@ CREATE TABLE post(
 post_id SERIAL PRIMARY KEY,
 title VARCHAR(64) NOT NULL,
 item INTEGER NOT NULL REFERENCES item(item_id) ON DELETE CASCADE,
-start_time TIMESTAMP,
+start_time TIMESTAMP DEFAULT NOW(),
 end_time TIMESTAMP,
-create_time TIMESTAMP DEFAULT NOW(),
 description VARCHAR(200),
-minimum_bid INT,
 delivery BOOLEAN NOT NULL,
-terminate_time TIMESTAMP,
-status BOOLEAN);  --{expire or available}
+availability BOOLEAN);
   
 
 CREATE TABLE bid(

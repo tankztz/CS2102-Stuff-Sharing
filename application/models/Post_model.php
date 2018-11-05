@@ -17,6 +17,18 @@ class Post_model extends CI_Model {
         $query = $this->db->get_where('post', array('post_id' => $id));
         return $query->row_array();
     }
+
+    public function get_my_post($user_id = FALSE)
+    {
+        if ($user_id === FALSE)
+        {
+            return NULL;
+        }
+
+        $sql = "SELECT p.* FROM post p, item i WHERE p.item = i.item_id AND  i.owner = ".$user_id." AND p.status = TRUE";
+        $query = $this->db->query($sql);
+        return $query->result_array();
+    }
     
     public function set_post()
     {

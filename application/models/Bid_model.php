@@ -18,19 +18,17 @@ class Bid_model extends CI_Model {
         return $query->row_array();
     }
     
-    public function set_bid()
+    public function set_bid($id = NULL)
     {
         $this->load->helper('url');
 
-        $status = 1;
         $create_time = NULL;
 
         $data = array(
 
-        'bidder' => $this->input->post('user_id'),
-        'post' => $this->input->post('post_id'),
+        'bidder' => $user_id = $this->session->userdata('user_id'),
+        'post' => $id,
         'points' => $this->input->post('points'),
-        'status' => $status,
         'create_time' => $create_time,
         );
 

@@ -29,11 +29,12 @@ class management extends CI_Controller {
         }
         else
         {   
-            $user = $this->users_model->set_users();
-            if ($user) {
+            $user_id = $this->users_model->set_users();
+            if ($user_id != FALSE) {
                 $this->session->set_flashdata('flash_success', 'Your account has been created. You are now signed in.');
                 $this->session->set_userdata([
                     'username' => $user->username,
+                    'user_id' => $user_id,
                     'logged_in' => true,
             ]);
         }

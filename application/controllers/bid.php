@@ -10,6 +10,7 @@ class bid extends CI_Controller {
             redirect('users/create');
         }
         else{
+            $this->load->model('users_model');
             $this->load->model('bid_model');
             $this->load->helper('url_helper');
         }
@@ -44,15 +45,15 @@ class bid extends CI_Controller {
     }
 
     
-    public function create()
+    public function create($id = NULL)
     {
         $this->load->helper('form');
         $this->load->library('form_validation');
 
-        $data['title'] = 'Register a bid';
-
-        $this->form_validation->set_rules('user_id', 'user_id', 'required');
-        $this->form_validation->set_rules('post_id', 'post_id', 'required');
+        $data['title'] = 'Bidding';
+        $data['id'] = $id;
+        $this->form_validation->set_rules('points', 'points', 'required');
+        $this->form_validation->set_rules('points', 'points', 'callback_points_check');
 
 
         if ($this->form_validation->run() === FALSE)
@@ -64,9 +65,30 @@ class bid extends CI_Controller {
         }
         else
         {
-            $this->bid_model->set_bid();
+            $this->bid_model->set_bid($id);
+            $this->users_model->update_points();
             $data['title'] = 'SUCCESS';
-            $this->load->view('bid/create', $data);
+            $this->load->view('templates/header', $data);
+            $this->load->view('bid/successful');
+            $this->load->view('templates/footer');
         }
+    }
+
+    public function points_check($points)
+    {       
+            $current_point = $this->users_model->get_points();
+            if($current_point == NULL)
+            {
+                return FALSE;
+            }
+            else if ($points > $current_point)
+            {
+                    $this->form_validation->set_message('points_check', 'The bidding point entered must be less or equal than the points you have');
+                    return FALSE;
+            }
+            else
+            {
+                    return TRUE;
+            }
     }
 }

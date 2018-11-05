@@ -36,7 +36,9 @@ class Users_model extends CI_Model {
         );
 
         $this->db->insert('users', $data);
-        return true;
+        $this->db->where(['username' => $this->input->post('username')]);
+        $user = $this->db->get('users')->row(0);
+        return $user->user_id;
     }
 
     public function login_user($username, $password)
@@ -80,5 +82,28 @@ class Users_model extends CI_Model {
         $this->db->where(['username' => $username]);
         $user = $this->db->get('users')->row(0);
         return $user->user_id;
+    }
+
+    public function get_points()
+    {
+
+        $this->db->where(['user_id' => $this->session->userdata('user_id')]);
+        $user = $this->db->get('users')->row(0);
+        return $user->points;
+
+    }
+
+    public function update_points()
+    {
+
+        $points_deducted = $this->input->post('points');
+        $points = $this->get_points() - $points_deducted;
+        $data = array(
+        'points' => $points
+        );
+
+        $this->db->where(['user_id' => $this->session->userdata('user_id')]);
+        $this->db->update('users', $data);
+
     }
 }

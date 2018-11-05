@@ -12,6 +12,8 @@ class bid extends CI_Controller {
         else{
             $this->load->model('users_model');
             $this->load->model('bid_model');
+            $this->load->model('loan_model');
+            $this->load->model('post_model');
             $this->load->helper('url_helper');
         }
     }
@@ -100,6 +102,21 @@ class bid extends CI_Controller {
             $this->load->view('templates/header', $data);
             $this->load->view('templates/sidebar_header', $data);
             $this->load->view('bid/index', $data);
+            $this->load->view('templates/sidebar_footer');
+            $this->load->view('templates/footer');
+    }
+
+    public function confirm_bidder($post_id = NULL , $user_id = NULL)
+    {       
+            $this->users_model->return_points($post_id,$user_id);
+            $this->loan_model->set_loan($post_id,$user_id);
+            $this->post_model->toggle_availability($post_id);
+
+            $data['title'] = 'A new loan has been created!';
+    
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar_header', $data);
+            $this->load->view('bid/button');
             $this->load->view('templates/sidebar_footer');
             $this->load->view('templates/footer');
     }

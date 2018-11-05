@@ -71,6 +71,7 @@ $route['item'] = 'item';
 $route['bid/index'] = 'bid/index';
 $route['bid/create'] = 'bid/create';
 $route['bid/create/(:any)'] = 'bid/create/$1';
+$route['bid/confirm_bidder/(:any)/(:num)'] = 'bid/confirm_bidder/$1/$2';
 $route['bid/(:any)'] = 'bid/view/$1';
 $route['bid'] = 'bid';
 

@@ -23,7 +23,7 @@ insert into users (user_id, username, mobile, email, password, admin) values (DE
 
 ALTER SEQUENCE item_item_id_seq RESTART WITH 1;
 
-insert into item (item_id, name, owner, category, description) values (DEFAULT, 'Book', 14, 'ALL', 'useful');  --pick
+insert into item (item_id, name, owner, category, description) values (DEFAULT, 'Book', 14, 'Book', 'useful');  --pick
 insert into item (item_id, name, owner, category, description) values (DEFAULT, 'Shiratamako - Rice Flour', 6, 'ALL', 'good');
 insert into item (item_id, name, owner, category, description) values (DEFAULT, 'Lobster - Live', 5, 'ALL', 'good');
 insert into item (item_id, name, owner, category, description) values (DEFAULT, 'Salsify, Organic', 18, 'ALL', 'good');
@@ -33,7 +33,7 @@ insert into item (item_id, name, owner, category, description) values (DEFAULT, 
 insert into item (item_id, name, owner, category, description) values (DEFAULT, 'Yogurt - Peach, 175 Gr', 15, 'ALL', 'good');
 insert into item (item_id, name, owner, category, description) values (DEFAULT, 'Muffin Hinge Container 6', 20, 'ALL', 'good');
 insert into item (item_id, name, owner, category, description) values (DEFAULT, 'Jolt Cola', 3, 'ALL', 'good');
-insert into item (item_id, name, owner, category, description) values (DEFAULT, 'Shirt', 2, 'ALL', 'nice'); --pick
+insert into item (item_id, name, owner, category, description) values (DEFAULT, 'Shirt', 2, 'Clothing', 'nice'); --pick
 insert into item (item_id, name, owner, category, description) values (DEFAULT, 'Cherries - Frozen', 3, 'ALL', 'good');
 insert into item (item_id, name, owner, category, description) values (DEFAULT, 'Soup Campbells Split Pea And Ham', 6, 'ALL', 'good');
 insert into item (item_id, name, owner, category, description) values (DEFAULT, 'Tequila Rose Cream Liquor', 17, 'ALL', 'good');
@@ -43,7 +43,7 @@ insert into item (item_id, name, owner, category, description) values (DEFAULT, 
 insert into item (item_id, name, owner, category, description) values (DEFAULT, 'Vinegar - Balsamic', 1, 'ALL', 'good');
 insert into item (item_id, name, owner, category, description) values (DEFAULT, 'Sugar - Fine', 8, 'ALL', 'good');
 insert into item (item_id, name, owner, category, description) values (DEFAULT, 'Grand Marnier', 18, 'ALL', 'good');
-insert into item (item_id, name, owner, category, description) values (DEFAULT, 'Shoes', 16, 'ALL', 'good outlook'); --pick
+insert into item (item_id, name, owner, category, description) values (DEFAULT, 'Shoes', 16, 'Clothing', 'good outlook'); --pick
 insert into item (item_id, name, owner, category, description) values (DEFAULT, 'Wine - Muscadet Sur Lie', 2, 'ALL', 'good');
 insert into item (item_id, name, owner, category, description) values (DEFAULT, 'Pork - Tenderloin, Fresh', 10, 'ALL', 'good');
 insert into item (item_id, name, owner, category, description) values (DEFAULT, 'Ham - Smoked, Bone - In', 14, 'ALL', 'good');
@@ -53,7 +53,7 @@ insert into item (item_id, name, owner, category, description) values (DEFAULT, 
 insert into item (item_id, name, owner, category, description) values (DEFAULT, 'Yogurt - Strawberry, 175 Gr', 2, 'ALL', 'good');
 insert into item (item_id, name, owner, category, description) values (DEFAULT, 'Sea Bass - Whole', 10, 'ALL', 'good');
 insert into item (item_id, name, owner, category, description) values (DEFAULT, 'Pepper - Scotch Bonnet', 10, 'ALL', 'good');
-insert into item (item_id, name, owner, category, description) values (DEFAULT, 'Bag', 12, 'ALL', 'large'); --pick
+insert into item (item_id, name, owner, category, description) values (DEFAULT, 'Bag', 12, 'Accessory', 'large'); --pick
 insert into item (item_id, name, owner, category, description) values (DEFAULT, 'Pineapple - Canned, Rings', 16, 'ALL', 'good');
 insert into item (item_id, name, owner, category, description) values (DEFAULT, 'Bread - Granary Small Pull', 1, 'ALL', 'good');
 insert into item (item_id, name, owner, category, description) values (DEFAULT, 'Mace', 6, 'ALL', 'good');
@@ -122,21 +122,21 @@ insert into item (item_id, name, owner, category, description) values (DEFAULT, 
 insert into item (item_id, name, owner, category, description) values (DEFAULT, 'Scotch - Queen Anne', 11, 'ALL', 'good');
 insert into item (item_id, name, owner, category, description) values (DEFAULT, 'Icecream Bar - Del Monte', 18, 'ALL', 'good');
 insert into item (item_id, name, owner, category, description) values (DEFAULT, 'Butter Balls Salted', 1, 'ALL', 'good');
-insert into item (item_id, name, owner, category, description) values (DEFAULT, 'Skateboard Shoes', 18, 'ALL', 'cool');  --pick 
+insert into item (item_id, name, owner, category, description) values (DEFAULT, 'Skateboard Shoes', 18, 'Clothing', 'cool');  --pick 
 
 
 ALTER SEQUENCE post_post_id_seq RESTART WITH 1;
 
-insert into post (post_id, title, item, start_time, end_time, description, delivery, status) values (DEFAULT, 'useful book2', 1, '2018-08-26 16:25:22', '2018-11-10 18:56:11', 'Joq good', false, true);
-insert into post (post_id, title, item, start_time, end_time, description, delivery, status) values (DEFAULT, 'nice shirt2', 11, '2018-08-03 18:52:48', '2018-12-15 09:39:44', 'Uml good', false, true);
-insert into post (post_id, title, item, start_time, end_time, description, delivery, status) values (DEFAULT, 'good shoes2', 21, '2018-12-16 23:59:29', '2018-12-29 20:04:46', 'Yda good', false, true);
-insert into post (post_id, title, item, start_time, end_time, description, delivery, status) values (DEFAULT, 'large bag2', 31, '2018-08-03 09:46:47', '2018-10-31 18:55:06', 'Sgk good', false, true);
-insert into post (post_id, title, item, start_time, end_time, description, delivery, status) values (DEFAULT, 'cool SB shoes2', 100, '2018-08-29 02:32:47', '2018-12-11 16:08:45', 'Cki good', false, true);
-insert into post (post_id, title, item, start_time, end_time, description, delivery, status) values (DEFAULT, 'useful book', 1, '2018-08-05 22:27:13', '2018-12-30 02:09:23', 'Snv good', false, false);
-insert into post (post_id, title, item, start_time, end_time, description, delivery, status) values (DEFAULT, 'nice shirt', 11, '2018-02-25 22:41:40', '2018-12-01 21:55:10', 'Sai good', false, false);
-insert into post (post_id, title, item, start_time, end_time, description, delivery, status) values (DEFAULT, 'good shoes', 21, '2018-03-21 18:47:58', '2018-11-18 05:06:38', 'Bqf good', false, false);
-insert into post (post_id, title, item, start_time, end_time, description, delivery, status) values (DEFAULT, 'large bag', 31, '2017-10-28 05:18:54', '2018-11-22 15:12:24', 'Dva good', false, false);
-insert into post (post_id, title, item, start_time, end_time, description, delivery, status) values (DEFAULT, 'cool SB shoes', 100, '2018-07-06 02:00:39', '2018-12-23 05:11:38', 'Jvb good', false, false);
+insert into post (post_id, title, item, start_time, end_time, description, delivery, availability) values (DEFAULT, 'useful book2', 1, '2018-08-26 16:25:22', '2018-11-10 18:56:11', 'Joq good', false, true);
+insert into post (post_id, title, item, start_time, end_time, description, delivery, availability) values (DEFAULT, 'nice shirt2', 11, '2018-08-03 18:52:48', '2018-12-15 09:39:44', 'Uml good', false, true);
+insert into post (post_id, title, item, start_time, end_time, description, delivery, availability) values (DEFAULT, 'good shoes2', 21, '2018-12-16 23:59:29', '2018-12-29 20:04:46', 'Yda good', false, true);
+insert into post (post_id, title, item, start_time, end_time, description, delivery, availability) values (DEFAULT, 'large bag2', 31, '2018-08-03 09:46:47', '2018-10-31 18:55:06', 'Sgk good', false, true);
+insert into post (post_id, title, item, start_time, end_time, description, delivery, availability) values (DEFAULT, 'cool SB shoes2', 100, '2018-08-29 02:32:47', '2018-12-11 16:08:45', 'Cki good', false, true);
+insert into post (post_id, title, item, start_time, end_time, description, delivery, availability) values (DEFAULT, 'useful book', 1, '2018-08-05 22:27:13', '2018-12-30 02:09:23', 'Snv good', false, false);
+insert into post (post_id, title, item, start_time, end_time, description, delivery, availability) values (DEFAULT, 'nice shirt', 11, '2018-02-25 22:41:40', '2018-12-01 21:55:10', 'Sai good', false, false);
+insert into post (post_id, title, item, start_time, end_time, description, delivery, availability) values (DEFAULT, 'good shoes', 21, '2018-03-21 18:47:58', '2018-11-18 05:06:38', 'Bqf good', false, false);
+insert into post (post_id, title, item, start_time, end_time, description, delivery, availability) values (DEFAULT, 'large bag', 31, '2017-10-28 05:18:54', '2018-11-22 15:12:24', 'Dva good', false, false);
+insert into post (post_id, title, item, start_time, end_time, description, delivery, availability) values (DEFAULT, 'cool SB shoes', 100, '2018-07-06 02:00:39', '2018-12-23 05:11:38', 'Jvb good', false, false);
 
 insert into bid (bidder, points, post) values (15, 1, 1);
 insert into bid (bidder, points, post) values (1, 2, 1);

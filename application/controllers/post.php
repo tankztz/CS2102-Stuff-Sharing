@@ -78,4 +78,45 @@ class post extends CI_Controller {
             $this->load->view('templates/footer');
         }
     }
+
+
+    public function allposts()
+    {
+        //TODO: handle datatype, display different kind of items on current user page
+        
+        
+        $data['post'] = $this->post_model->get_post();
+
+        $data['title'] = 'All posts';
+    
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar_header', $data);
+        $this->load->view('post/button');
+        $this->load->view('post/index', $data);
+        $this->load->view('templates/sidebar_footer_users');
+        $this->load->view('templates/footer');
+    }
+    
+    public function myposts()
+    {
+        //TODO: handle datatype, display different kind of items on current user page
+        
+        $user_id = $this->session->userdata('user_id');
+        
+        $data['mypost'] = $this->post_model->get_my_post($user_id);
+        
+        if (empty($data['mypost']))
+        {
+            //TODO: general message page
+        }
+
+        $data['title'] = "My post";
+    
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar_header', $data);
+        $this->load->view('post/button');
+        $this->load->view('post/myindex', $data);
+        $this->load->view('templates/sidebar_footer_users');
+        $this->load->view('templates/footer');
+    }
 }

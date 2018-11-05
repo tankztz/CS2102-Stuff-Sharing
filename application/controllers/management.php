@@ -39,7 +39,7 @@ class management extends CI_Controller {
             ]);
         }
 
-            redirect('post/index');
+            redirect('post/allposts');
         }
     }
 
@@ -72,7 +72,7 @@ class management extends CI_Controller {
                 'logged_in' => true,
             ]);
             $this->session->set_flashdata('flash_success', 'You are now logged in');
-            redirect('users/allposts');
+            redirect('post/allposts');
         }
     }
         public function logout()

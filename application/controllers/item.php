@@ -65,6 +65,29 @@ class item extends CI_Controller {
         $this->load->view('templates/sidebar_footer_users');
         $this->load->view('templates/footer');
     }
+
+    public function myitem()
+    {
+        //TODO: handle datatype, display different kind of items on current user page
+        
+        $user_id = $this->session->userdata('user_id');
+        
+        $data['item_item'] = $this->item_model->get_my_item($user_id);
+        
+        if (empty($data['item_item']))
+        {
+            //TODO: general message page
+        }
+
+        $data['title'] = "My item";
+    
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar_header', $data);
+        $this->load->view('item/button');
+        $this->load->view('item/view', $data);
+        $this->load->view('templates/sidebar_footer_users');
+        $this->load->view('templates/footer');
+    }
     
     public function create()
     {

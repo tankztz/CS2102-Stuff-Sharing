@@ -14,6 +14,7 @@ class users extends CI_Controller {
         $this->load->model('users_model');
         $this->load->model('item_model');
         $this->load->model('post_model');
+        $this->load->model('loan_model');
         $this->load->helper('url_helper');
     }
 
@@ -110,7 +111,28 @@ class users extends CI_Controller {
         $this->load->view('templates/footer');
     }
 
+
+    public function myloan()
+    {
+        //TODO: handle datatype, display different kind of items on current user page
+        $user_id = $this->session->userdata('user_id');
+        
+        $data['myloan'] = $this->loan_model->get_my_loan($user_id);
+        
+        if (empty($data['myloan']))
+        {
+            //TODO: general message page
+        }
+
+        $data['title'] = "My loan";
     
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar_header', $data);
+        $this->load->view('loan/myindex', $data);
+        $this->load->view('templates/sidebar_footer_users');
+        $this->load->view('templates/footer');
+    }
+
     public function current()
     {   
         $username = $this->session->userdata('username');

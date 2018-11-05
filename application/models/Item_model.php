@@ -26,7 +26,7 @@ class Item_model extends CI_Model {
         }
 
         $query = $this->db->get_where('item', array('owner' => $user_id));
-        return $query->row_array();
+        return $query->result_array();
     }
     
     public function set_item()

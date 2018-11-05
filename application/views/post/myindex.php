@@ -8,7 +8,6 @@
                 <div class="card-body">
                     <h4 class="card-title"><?php echo $users_post['title']; ?></h4>
                     <p class="card-text"><?php echo $users_post['description']; ?></p>
-                    <p class="card-text"><small class="text-muted"><?php echo $users_post['minimum_bid']; ?></small></p>
                     <div class="row">
                     <a href="<?php echo site_url('post/'.$users_post['post_id']); ?>" class="btn btn-primary m-3">View Details</a>
                     <a href="<?php echo site_url('bid/view_bidunderpost/'.$users_post['post_id']); ?>" class="btn btn-primary m-3">Choose Bidders</a>

@@ -24,7 +24,8 @@
             <div class="card m-3">
                 <div class="card-body">
                     <h4 class="card-title">Bid Points Placed:<?php echo $users_bid['points']; ?></h4>
-                    <a href="<?php echo site_url('post/'.$users_post['post_id']); ?>" class="btn btn-primary m-3">Choose</a>
+                    <p class="card-text">Bidder:<?php echo $users_bid['username']; ?></p>
+                    <a href="<?php echo site_url('bid/confirm_bidder/'.$users_bid['post'].'/'.$users_bid['bidder']); ?>" class="btn btn-primary m-3">Choose</a>
 
                 </div>
             </div>

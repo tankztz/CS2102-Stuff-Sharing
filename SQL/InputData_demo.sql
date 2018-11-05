@@ -21,6 +21,8 @@ insert into users (user_id, username, mobile, email, password, admin) values (DE
 insert into users (user_id, username, mobile, email, password, admin) values (DEFAULT, 'athurleyi', '9744433173', 'bscrinei@sciencedaily.com', 'AnSHacX', false);
 insert into users (user_id, username, mobile, email, password, admin) values (DEFAULT, 'test', '2704164116', 'test@nus.com', '123456', true);
 
+UPDATE users SET points = 1000;
+
 ALTER SEQUENCE item_item_id_seq RESTART WITH 1;
 
 insert into item (item_id, name, owner, category, description) values (DEFAULT, 'Book', 14, 'Book', 'useful');  --pick
@@ -168,7 +170,6 @@ insert into bid (bidder, points, post) values (15, 5, 6);
 insert into bid (bidder, points, post) values (2, 6, 6);
 insert into bid (bidder, points, post) values (3, 8, 7);
 insert into bid (bidder, points, post) values (17, 7, 7);
-insert into bid (bidder, points, post) values (16, 6, 7);
 insert into bid (bidder, points, post) values (18, 4, 7);
 insert into bid (bidder, points, post) values (16, 5, 7);
 insert into bid (bidder, points, post) values (3, 4, 8);
@@ -179,7 +180,6 @@ insert into bid (bidder, points, post) values (4, 4, 9);
 insert into bid (bidder, points, post) values (18, 5, 9);
 insert into bid (bidder, points, post) values (8, 6, 9);
 insert into bid (bidder, points, post) values (7, 7, 9);
-insert into bid (bidder, points, post) values (5, 5, 10);
 insert into bid (bidder, points, post) values (14, 3, 10);
 insert into bid (bidder, points, post) values (10, 10, 10);
 insert into bid (bidder, points, post) values (2, 13, 10); 
@@ -198,3 +198,14 @@ insert into comment (comment_id, loan, user_name, content, rating) values (DEFAU
 insert into comment (comment_id, loan, user_name, content, rating) values (DEFAULT, 2, 3, 'not nice', 2);
 insert into comment (comment_id, loan, user_name, content, rating) values (DEFAULT, 3, 9, 'quite good', 5);
 insert into comment (comment_id, loan, user_name, content, rating) values (DEFAULT, 4, 12, 'not small', 3);
+
+/* for testing purposes*/
+insert into post (post_id, title, item, start_time, end_time, description, delivery, availability) values (DEFAULT, 'mymysdfs', 66, '2018-07-06 02:00:39', '2018-12-23 05:11:38', 'Jvb good', false, true);
+insert into bid (bidder, points, post) values (15, 1, 11);
+insert into bid (bidder, points, post) values (1, 2, 11);
+insert into bid (bidder, points, post) values (11, 3, 11);
+insert into bid (bidder, points, post) values (5, 4, 11);
+insert into bid (bidder, points, post) values (19, 2, 11);
+insert into bid (bidder, points, post) values (13, 4, 11);
+insert into bid (bidder, points, post) values (16, 10, 11);
+

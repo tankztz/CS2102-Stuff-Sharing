@@ -33,8 +33,8 @@ CREATE TABLE bid(
 bidder INTEGER NOT NULL REFERENCES users(user_id) ON DELETE CASCADE,
 post INTEGER NOT NULL REFERENCES post(post_id) ON DELETE CASCADE,
 points NUMERIC,
-create_time TIMESTAMP DEFAULT NOW())
-PRYMARY KEY(bidder, post);
+create_time TIMESTAMP DEFAULT NOW(),
+PRIMARY KEY(bidder, post));
 
 CREATE TABLE loan(
 loan_id SERIAL PRIMARY KEY,

@@ -25,9 +25,22 @@ class Post_model extends CI_Model {
             return NULL;
         }
 
-        $sql = "SELECT p.* FROM post p, item i WHERE p.item = i.item_id AND  i.owner = ".$user_id." AND p.status = TRUE";
+        $sql = "SELECT p.* FROM post p, item i WHERE p.item = i.item_id AND  i.owner = ".$user_id." AND p.availability = TRUE";
         $query = $this->db->query($sql);
         return $query->result_array();
+    }
+
+    public function toggle_availability($post_id = FALSE)
+    {
+
+        $this->db->where(['post_id' => $post_id]);
+        $post = $this->db->get('post')->row(0);
+        $availability = !($post->availability);
+        $data = array(
+        'availability' => $availability
+        );
+        $this->db->where(['post_id' => $post_id]);
+        $this->db->update('post', $data);
     }
     
     public function set_post()
@@ -37,8 +50,7 @@ class Post_model extends CI_Model {
         $delivery = FALSE;
         $start_time = NULL;
         $end_time = NULL;
-        $biding_period = NULL;
-        $status = TRUE;
+        $availability = TRUE;
         
         $data = array(
         'title' => $this->input->post('title'),
@@ -47,7 +59,7 @@ class Post_model extends CI_Model {
         'delivery' => $delivery,
         'start_time' => $start_time,
         'end_time' => $end_time,
-        'status' => $status,
+        'availability' => $availability,
         );
 
         return $this->db->insert('post', $data);

@@ -55,8 +55,6 @@ $route['news/create'] = 'news/create';
 $route['news/(:any)'] = 'news/view/$1';
 $route['news'] = 'news';
 
-$route['users/allposts'] = 'users/allposts';
-$route['users/myposts'] = 'users/myposts';
 $route['users/index'] = 'users/index';
 $route['users/current'] = 'users/current';
 $route['users/current/(:any)'] = 'users/mydata/$1';
@@ -65,22 +63,27 @@ $route['users'] = 'users';
 
 $route['item/index'] = 'item/index';
 $route['item/create'] = 'item/create';
+$route['item/myitem'] = 'item/myitem';
 $route['item/(:any)'] = 'item/view/$1';
 $route['item'] = 'item';
 
 $route['bid/index'] = 'bid/index';
 $route['bid/create'] = 'bid/create';
+$route['bid/myfailedbid'] = 'bid/myfailedbid';
 $route['bid/create/(:any)'] = 'bid/create/$1';
 $route['bid/confirm_bidder/(:any)/(:num)'] = 'bid/confirm_bidder/$1/$2';
 $route['bid/(:any)'] = 'bid/view/$1';
 $route['bid'] = 'bid';
 
 $route['loan/index'] = 'loan/index';
+$route['loan/myloan'] = 'loan/myloan';
 $route['loan/create'] = 'loan/create';
 $route['loan/(:any)'] = 'loan/view/$1';
 $route['loan'] = 'loan';
 
 $route['post/index'] = 'post/index';
+$route['post/allposts'] = 'post/allposts';
+$route['post/myposts'] = 'post/myposts';
 $route['post/create'] = 'post/create';
 $route['post/(:any)'] = 'post/view/$1';
 $route['post'] = 'post';

@@ -56,6 +56,7 @@ $route['news/(:any)'] = 'news/view/$1';
 $route['news'] = 'news';
 
 $route['users/allposts'] = 'users/allposts';
+$route['users/myposts'] = 'users/myposts';
 $route['users/index'] = 'users/index';
 $route['users/current'] = 'users/current';
 $route['users/current/(:any)'] = 'users/mydata/$1';

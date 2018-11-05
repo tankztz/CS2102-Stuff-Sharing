@@ -1,3 +1,4 @@
+<!-- 
 <h2><?php echo $title; ?></h2>
 
 <?php foreach ($bid as $users_bid): ?>
@@ -12,3 +13,23 @@
         <p><?php echo site_url('bid/'.$users_bid['bid_id']); ?></p>
 
 <?php endforeach; ?>
+ -->
+
+<h2 class="text-center"><?php echo $title; ?></h2>
+
+<div class="container">
+<div class="row">
+<?php foreach ($users_bid as $users_bid): ?>
+		<div class="col-sm-6">
+            <div class="card m-3">
+                <div class="card-body">
+                    <h4 class="card-title">Bid Points Placed:<?php echo $users_bid['points']; ?></h4>
+                    <a href="<?php echo site_url('post/'.$users_post['post_id']); ?>" class="btn btn-primary m-3">Choose</a>
+
+                </div>
+            </div>
+        </div>
+
+<?php endforeach; ?>
+</div>
+</div>

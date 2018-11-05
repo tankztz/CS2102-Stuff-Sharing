@@ -2,17 +2,12 @@
 
 <?php echo validation_errors(); ?>
 
-<?php echo form_open('bid/create'); ?>
+<?php echo form_open('bid/create/'.$id); ?>
 
     <div class="form-style-5">
         <form>
             <fieldset>
-                <legend><span class="number">1</span> Required Info</legend>
-                <input type="text" name="user_id" placeholder="User ID *">
-                <input type="text" name="post_id" placeholder="Post ID *">
-
-                <legend><span class="number">2</span> Optional Info</legend>
-                <input type="text" name="points" placeholder="points">
+                <input type="number" name="points" placeholder="Enter your bid points *">
             </fieldset>
             <input type="submit" name="submit" value="Bid Confirmed" />
         </form>

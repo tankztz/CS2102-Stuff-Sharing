@@ -69,6 +69,7 @@ $route['item'] = 'item';
 
 $route['bid/index'] = 'bid/index';
 $route['bid/create'] = 'bid/create';
+$route['bid/create/(:any)'] = 'bid/create/$1';
 $route['bid/(:any)'] = 'bid/view/$1';
 $route['bid'] = 'bid';
 

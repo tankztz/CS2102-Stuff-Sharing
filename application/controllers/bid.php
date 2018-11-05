@@ -121,5 +121,49 @@ class bid extends CI_Controller {
             $this->load->view('templates/footer');
     }
 
+    public function myfailedbid()
+    {
+        //TODO: handle datatype, display different kind of items on current user page
+        
+        $user_id = $this->session->userdata('user_id');
+        
+        $data['myfailedbid'] = $this->bid_model->get_my_failedbid($user_id);
+        
+        if (empty($data['myfailedbid']))
+        {
+            //TODO: general message page
+        }
+
+        $data['title'] = "Bid failed";
+    
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar_header', $data);
+        $this->load->view('bid/myfailedbid', $data);
+        $this->load->view('templates/sidebar_footer_users');
+        $this->load->view('templates/footer');
+    }
+
+    public function mycurrentbid()
+    {
+        //TODO: handle datatype, display different kind of items on current user page
+        
+        $user_id = $this->session->userdata('user_id');
+        
+        $data['mycurrentbid'] = $this->bid_model->get_my_currentbid($user_id);
+        
+        if (empty($data['mycurrentbid']))
+        {
+            //TODO: general message page
+        }
+
+        $data['title'] = "Bid failed";
+    
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar_header', $data);
+        $this->load->view('bid/mycurrentbid', $data);
+        $this->load->view('templates/sidebar_footer_users');
+        $this->load->view('templates/footer');
+    }
+
 
     }

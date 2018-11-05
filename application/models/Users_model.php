@@ -93,6 +93,15 @@ class Users_model extends CI_Model {
 
     }
 
+    public function get_points_from_id($user_id)
+    {
+
+        $this->db->where(['user_id' => $user_id]);
+        $user = $this->db->get('users')->row(0);
+        return $user->points;
+
+    }
+
     public function update_points()
     {
 
@@ -104,6 +113,24 @@ class Users_model extends CI_Model {
 
         $this->db->where(['user_id' => $this->session->userdata('user_id')]);
         $this->db->update('users', $data);
+
+    }
+
+    public function return_points($post_id, $user_id)
+    {
+        $sql = "SELECT * FROM bid b WHERE b.post = ".$post_id. "AND  b.bidder != ".$user_id;
+        $query = $this->db->query($sql);
+        
+        foreach($query->result_array() as $bid){
+            $points = $this->get_points_from_id($bid['bidder']) + $bid['points'];
+            $data = array(
+            'points' => $points
+            );
+            $this->db->where(['user_id' => $bid['bidder']]);
+            $this->db->update('users', $data);
+
+        }
+
 
     }
 }

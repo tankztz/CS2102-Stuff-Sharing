@@ -28,9 +28,9 @@
 					</div>
                         <div id="top-nav">
                             <ul>
-                                <li><a href="#">About</a></li>
-                                <li><a href="#">Contact</a></li>
-                                <li><a href="#"><?php echo "testbutton" ?></a></li>
+                                <li><a href="https://github.com/tankztz/CS2102-Stuff-Sharing">About</a></li>
+                                <li><a href="https://github.com/tankztz/CS2102-Stuff-Sharing">Contact</a></li>
+                                <li><a href="https://github.com/tankztz/CS2102-Stuff-Sharing"><?php echo "Github" ?></a></li>
                                 <?php if(!$this->session->userdata('logged_in')): ?>
                                     <li><a href="<?php echo base_url(); ?>index.php/management/create">Register</a></li>
                                     <li><a href="<?php echo base_url(); ?>index.php/management/login">Login</a></li>

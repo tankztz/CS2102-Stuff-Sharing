@@ -30,6 +30,18 @@ class Post_model extends CI_Model {
         return $query->result_array();
     }
 
+    public function get_poster($post_id = FALSE)
+    {
+        if ($post_id === FALSE)
+        {
+            return NULL;
+        }
+
+        $sql = "SELECT u.* FROM post p, item i, users u WHERE p.post_id = ".$post_id." AND p.item = i.item_id AND i.owner = u.user_id";
+        $query = $this->db->query($sql);
+        return $query->result_array();
+    }
+
     public function toggle_availability($post_id = FALSE)
     {
 

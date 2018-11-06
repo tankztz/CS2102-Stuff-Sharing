@@ -54,7 +54,6 @@ class bid extends CI_Controller {
 
         $data['title'] = 'Bidding';
         $data['id'] = $id;
-        $this->form_validation->set_rules('points', 'points', 'required');
         $this->form_validation->set_rules('points', 'points', 'callback_points_check');
 
 
@@ -82,6 +81,10 @@ class bid extends CI_Controller {
             if($current_point == NULL)
             {
                 return FALSE;
+            }
+            else if ($points == NULL){
+                    $this->form_validation->set_message('points_check', 'Please enter your bid point!');
+                    return FALSE;
             }
             else if ($points > $current_point)
             {

@@ -2,7 +2,7 @@
 
 <div class="container">
 <div class="row">
-<?php foreach ($mypost as $users_post): ?>
+<?php foreach ($post as $users_post): ?>
 		<div class="col-sm-6">
             <div class="card m-3">
                 <div class="card-body">

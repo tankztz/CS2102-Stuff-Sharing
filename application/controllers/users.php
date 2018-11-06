@@ -90,13 +90,11 @@ class users extends CI_Controller {
 
     public function mydata($datatype = NULL)
     {
-        //TODO: handle datatype, display different kind of items on current user page
-        
         $user_id = $this->session->userdata('user_id');
         
-        $data['item_item'] = $this->item_model->get_my_item($user_id);
+        $data[$datatype] = $this->users_model->get_my_related($user_id, $datatype);
         
-        if (empty($data['item_item']))
+        if (empty($data[$datatype]))
         {
             //TODO: general message page
         }
@@ -108,22 +106,31 @@ class users extends CI_Controller {
         if ($datatype == "item")
         {
             $this->load->view('item/button');
-            $this->load->view('item/view', $data);
+            $this->load->view('item/index', $data);
         }
         else if ($datatype == "bid")
         {
             $this->load->view('bid/button');
-            $this->load->view('bid/view', $data);
+            $this->load->view('bid/index', $data);
         }
-        else if ($datatype == "posts")
+        else if ($datatype == "post")
         {
-            $this->load->view('posts/button');
-            $this->load->view('posts/view', $data);
+            $this->load->view('post/button');
+            $this->load->view('post/index', $data);
         }
         else if ($datatype == "loan")
         {
-            $this->load->view('loan/button');
-            $this->load->view('loan/view', $data);
+            //$this->load->view('loan/button');
+            $this->load->view('loan/index', $data);
+        }
+        else if ($datatype == "comment")
+        {
+            //$this->load->view('loan/button');
+            $this->load->view('comment/index', $data);
+        }
+        else
+        {
+            show_404();
         }
         $this->load->view('templates/sidebar_footer_users');
         $this->load->view('templates/footer');

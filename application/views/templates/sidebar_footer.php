@@ -6,7 +6,6 @@
 						<h3>Quick Links</h3>
 						<ul>
 						<li><a href="http://localhost/CS2102-Stuff-Sharing/index.php/users/index">Users</a></li>
-						<li><a href="http://localhost/CS2102-Stuff-Sharing/index.php/news">News</a></li>
 						<li><a href="http://localhost/CS2102-Stuff-Sharing/index.php/item/index">Item</a></li>
 						<li><a href="http://localhost/CS2102-Stuff-Sharing/index.php/bid/index">Bid</a></li>
 						<li><a href="http://localhost/CS2102-Stuff-Sharing/index.php/post/index">Post</a></li>

@@ -19,7 +19,7 @@ class post extends CI_Controller {
     public function index()
     {
         $data['post'] = $this->post_model->get_post();
-        $data['title'] = 'ITEM';
+        $data['title'] = 'ALL POSTS';
     
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar_header', $data);

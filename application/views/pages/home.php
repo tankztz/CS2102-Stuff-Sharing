@@ -15,13 +15,14 @@
     <nav id="sidebar">
       <div class="widget">
         <h3>Quick Links</h3>
-        <ul>
-        <li><a href="http://localhost/CS2102-Stuff-Sharing/index.php/users">Users</a></li>
-        <li><a href="http://localhost/CS2102-Stuff-Sharing/index.php/news">News</a></li>
-        <li><a href="#">Link 3</a></li>
-        <li><a href="#">Link 4</a></li>
-        <li><a href="#">Link 5</a></li>
-        </ul>
+            <ul>
+                <li><a href="<?php echo base_url(); ?>index.php/users/index">Users</a></li>
+                <li><a href="<?php echo base_url(); ?>index.php/item/index">Item</a></li>
+                <li><a href="<?php echo base_url(); ?>index.php/bid/index">Bid</a></li>
+                <li><a href="<?php echo base_url(); ?>index.php/post/index">Post</a></li>
+                <li><a href="<?php echo base_url(); ?>index.php/loan/index">Loan</a></li>
+                <li><a href="<?php echo base_url(); ?>index.php/comment/index">Comment</a></li>
+            </ul>
       </div>
     </nav>
     

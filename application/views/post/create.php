@@ -16,7 +16,7 @@
     <select class="form-control" id="item" name="item">
     <?php if (sizeof($item[0]) > 2): ?>
     <?php foreach ($item as $item_item): ?>
-      <option value= <?php echo $item_item['item_id']; ?> > <?php echo $item_item['title']; ?></option>
+      <option value= <?php echo $item_item['item_id']; ?> > <?php echo $item_item['name']; ?></option>
       <?php endforeach; ?>
       <?php else: ?>
       <option value= <?php echo $item['item_id']; ?> > <?php echo $item['name']; ?></option>

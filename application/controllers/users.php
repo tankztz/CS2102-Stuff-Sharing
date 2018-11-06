@@ -101,12 +101,30 @@ class users extends CI_Controller {
             //TODO: general message page
         }
 
-        $data['title'] = "My item";
+        $data['title'] = "My ".$datatype;
     
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar_header', $data);
-        $this->load->view('item/button');
-        $this->load->view('item/view', $data);
+        if ($datatype == "item")
+        {
+            $this->load->view('item/button');
+            $this->load->view('item/view', $data);
+        }
+        else if ($datatype == "bid")
+        {
+            $this->load->view('bid/button');
+            $this->load->view('bid/view', $data);
+        }
+        else if ($datatype == "posts")
+        {
+            $this->load->view('posts/button');
+            $this->load->view('posts/view', $data);
+        }
+        else if ($datatype == "loan")
+        {
+            $this->load->view('loan/button');
+            $this->load->view('loan/view', $data);
+        }
         $this->load->view('templates/sidebar_footer_users');
         $this->load->view('templates/footer');
     }

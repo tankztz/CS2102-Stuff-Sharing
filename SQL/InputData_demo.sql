@@ -1,7 +1,7 @@
 ALTER SEQUENCE users_user_id_seq RESTART WITH 1;
 
 insert into users (user_id, username, mobile, email, password, admin) values (DEFAULT, 'cs2102', '3016779446', 'cs2102@nus.com', '123456789', true);
-insert into users (user_id, username, mobile, email, password, admin) values (DEFAULT, 'fbenninger1', '4345464198', 'mbarns1@mysql.com', 'UC2pBghtlp', false);
+insert into users (user_id, username, mobile, email, password, admin) values (DEFAULT, 'noadmin', '4345464198', 'noadmin@nus.com', '123456789', false);
 insert into users (user_id, username, mobile, email, password, admin) values (DEFAULT, 'iyashnov2', '5046215169', 'gmccullagh2@howstuffworks.com', 'ahpMnw12jOwo', false);
 insert into users (user_id, username, mobile, email, password, admin) values (DEFAULT, 'kmortimer3', '7355080785', 'cavis3@uol.com.br', 'GL9DiGaBBwNc', false);
 insert into users (user_id, username, mobile, email, password, admin) values (DEFAULT, 'gwooler4', '3262871738', 'mblodg4@ycombinator.com', 'fe1hXuy', false);
@@ -19,7 +19,7 @@ insert into users (user_id, username, mobile, email, password, admin) values (DE
 insert into users (user_id, username, mobile, email, password, admin) values (DEFAULT, 'ogunbyg', '6844071493', 'apaternosterg@wordpress.com', '9DMk7lyQu2C', false);
 insert into users (user_id, username, mobile, email, password, admin) values (DEFAULT, 'finnerstoneh', '4477532736', 'golehaneh@bravesites.com', 'of0xI2y', false);
 insert into users (user_id, username, mobile, email, password, admin) values (DEFAULT, 'athurleyi', '9744433173', 'bscrinei@sciencedaily.com', 'AnSHacX', false);
-insert into users (user_id, username, mobile, email, password, admin) values (DEFAULT, 'test', '2704164116', 'test@nus.com', '123456', true);
+insert into users (user_id, username, mobile, email, password, admin) values (DEFAULT, 'test', '2704164116', 'test@nus.com', '123456789', true);
 
 ALTER SEQUENCE item_item_id_seq RESTART WITH 1;
 
@@ -173,12 +173,12 @@ insert into bid (bidder, points, post) values (10, 10, 5);
 insert into bid (bidder, points, post) values (19, 3, 6);
 insert into bid (bidder, points, post) values (17, 4, 6);
 insert into bid (bidder, points, post) values (15, 5, 6);
-insert into bid (bidder, points, post) values (2, 6, 6);
+insert into bid (bidder, points, post) values (1, 6, 6);
 insert into bid (bidder, points, post) values (3, 8, 7);
 insert into bid (bidder, points, post) values (17, 7, 7);
 insert into bid (bidder, points, post) values (16, 6, 7);
 insert into bid (bidder, points, post) values (18, 4, 7);
-insert into bid (bidder, points, post) values (16, 5, 7);
+insert into bid (bidder, points, post) values (1, 5, 7);
 insert into bid (bidder, points, post) values (3, 4, 8);
 insert into bid (bidder, points, post) values (10, 3, 8);
 insert into bid (bidder, points, post) values (13, 2, 8);
@@ -186,7 +186,7 @@ insert into bid (bidder, points, post) values (20, 1, 8);
 insert into bid (bidder, points, post) values (4, 4, 9);
 insert into bid (bidder, points, post) values (18, 5, 9);
 insert into bid (bidder, points, post) values (8, 6, 9);
-insert into bid (bidder, points, post) values (7, 7, 9);
+insert into bid (bidder, points, post) values (1, 7, 9);
 insert into bid (bidder, points, post) values (5, 5, 10);
 insert into bid (bidder, points, post) values (14, 3, 10);
 insert into bid (bidder, points, post) values (10, 10, 10);
@@ -206,10 +206,10 @@ insert into bid (bidder, points, post) values (2, 13, 18);
 
 ALTER SEQUENCE loan_loan_id_seq RESTART WITH 1;
 
-insert into loan (loan_id, bidder, post, start_time, end_time) values (DEFAULT, 2, 6, '2018-08-05 22:27:13', '2018-12-30 02:09:23');
+insert into loan (loan_id, bidder, post, start_time, end_time) values (DEFAULT, 1, 6, '2018-08-05 22:27:13', '2018-12-30 02:09:23');
 insert into loan (loan_id, bidder, post, start_time, end_time) values (DEFAULT, 3, 7, '2018-02-25 22:41:40', '2018-12-01 21:55:10');
 insert into loan (loan_id, bidder, post, start_time, end_time) values (DEFAULT, 3, 8, '2018-03-21 18:47:58', '2018-11-18 05:06:38');
-insert into loan (loan_id, bidder, post, start_time, end_time) values (DEFAULT, 7, 9, '2017-10-28 05:18:54', '2018-11-22 15:12:24');
+insert into loan (loan_id, bidder, post, start_time, end_time) values (DEFAULT, 1, 9, '2017-10-28 05:18:54', '2018-11-22 15:12:24');
 insert into loan (loan_id, bidder, post, start_time, end_time) values (DEFAULT, 2, 10, '2018-07-06 02:00:39', '2018-12-23 05:11:38');
 insert into loan (loan_id, bidder, post, start_time, end_time) values (DEFAULT, 5, 15, '2018-08-05 22:27:13', '2018-12-30 02:09:23');
 insert into loan (loan_id, bidder, post, start_time, end_time) values (DEFAULT, 10, 16, '2018-02-25 22:41:40', '2018-12-01 21:55:10');
@@ -218,10 +218,10 @@ insert into loan (loan_id, bidder, post, start_time, end_time) values (DEFAULT, 
 
 ALTER SEQUENCE comment_comment_id_seq RESTART WITH 1;
 
-insert into comment (comment_id, loan, user_name, content, rating) values (DEFAULT, 1, 2, 'useful', 4);
+insert into comment (comment_id, loan, user_name, content, rating) values (DEFAULT, 1, 1, 'useful', 4);
 insert into comment (comment_id, loan, user_name, content, rating) values (DEFAULT, 2, 3, 'not nice', 2);
 insert into comment (comment_id, loan, user_name, content, rating) values (DEFAULT, 3, 3, 'quite good', 5);
-insert into comment (comment_id, loan, user_name, content, rating) values (DEFAULT, 4, 7, 'not small', 3);
+insert into comment (comment_id, loan, user_name, content, rating) values (DEFAULT, 4, 1, 'not small', 3);
 insert into comment (comment_id, loan, user_name, content, rating) values (DEFAULT, 5, 2, 'useful', 4);
 insert into comment (comment_id, loan, user_name, content, rating) values (DEFAULT, 6, 5, 'good', 4);
 insert into comment (comment_id, loan, user_name, content, rating) values (DEFAULT, 7, 10, 'quite good', 5);

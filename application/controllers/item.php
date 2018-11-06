@@ -61,6 +61,7 @@ class item extends CI_Controller {
     
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar_header', $data);
+        $this->load->view('item/button');
         $this->load->view('item/view', $data);
         $this->load->view('templates/sidebar_footer_users');
         $this->load->view('templates/footer');
@@ -113,5 +114,11 @@ class item extends CI_Controller {
             $data['title'] = 'SUCCESS';
             $this->load->view('item/create', $data);
         }
+    }
+
+    public function delete($id = NULL)
+    {
+        $this->item_model->delete_item($id);
+        header("Refresh:0");
     }
 }

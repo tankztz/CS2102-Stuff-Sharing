@@ -63,6 +63,7 @@ $route['users'] = 'users';
 
 $route['item/index'] = 'item/index';
 $route['item/create'] = 'item/create';
+$route['item/delete/(:any)'] = 'item/delete/$1';
 $route['item/myitem'] = 'item/myitem';
 $route['item/(:any)'] = 'item/view/$1';
 $route['item'] = 'item';

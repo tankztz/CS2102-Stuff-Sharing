@@ -42,10 +42,23 @@ class Item_model extends CI_Model {
         'owner' => $this->session->userdata('user_id'),
         'category' => $this->input->post('category'),
         'description' => $this->input->post('description'),
-        'status' => $status,
         'photo' => $photo,
         );
 
         return $this->db->insert('item', $data);
+    }
+
+        
+    public function delete_item($id = FALSE)
+    {
+        if ($id === FALSE)
+        {
+            return NULL;
+        }
+        
+        $sql = "DELETE FROM item WHERE item_id=".$id.";";
+        $query = $this->db->query($sql);
+
+        return $query; // boolean
     }
 }

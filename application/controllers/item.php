@@ -112,13 +112,15 @@ class item extends CI_Controller {
         {
             $this->item_model->set_item();
             $data['title'] = 'SUCCESS';
+            $this->load->view('templates/header', $data);
             $this->load->view('item/create', $data);
+            $this->load->view('templates/footer');
         }
     }
 
     public function delete($id = NULL)
     {
         $this->item_model->delete_item($id);
-        header("Refresh:0");
+        redirect('users/current/item');
     }
 }

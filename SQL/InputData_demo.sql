@@ -21,21 +21,19 @@ insert into users (user_id, username, mobile, email, password, admin) values (DE
 insert into users (user_id, username, mobile, email, password, admin) values (DEFAULT, 'athurleyi', '9744433173', 'bscrinei@sciencedaily.com', 'AnSHacX', false);
 insert into users (user_id, username, mobile, email, password, admin) values (DEFAULT, 'test', '2704164116', 'test@nus.com', '123456', true);
 
-UPDATE users SET points = 1000;
-
 ALTER SEQUENCE item_item_id_seq RESTART WITH 1;
 
 insert into item (item_id, name, owner, category, description) values (DEFAULT, 'Book', 14, 'Book', 'useful');  --pick
-insert into item (item_id, name, owner, category, description) values (DEFAULT, 'Shiratamako - Rice Flour', 6, 'ALL', 'good');
-insert into item (item_id, name, owner, category, description) values (DEFAULT, 'Lobster - Live', 5, 'ALL', 'good');
-insert into item (item_id, name, owner, category, description) values (DEFAULT, 'Salsify, Organic', 18, 'ALL', 'good');
-insert into item (item_id, name, owner, category, description) values (DEFAULT, 'Brandy - Bar', 3, 'ALL', 'good');
-insert into item (item_id, name, owner, category, description) values (DEFAULT, 'Wine - Zonnebloem Pinotage', 15, 'ALL', 'good');
-insert into item (item_id, name, owner, category, description) values (DEFAULT, 'Lettuce - Lambs Mash', 14, 'ALL', 'good');
-insert into item (item_id, name, owner, category, description) values (DEFAULT, 'Yogurt - Peach, 175 Gr', 15, 'ALL', 'good');
-insert into item (item_id, name, owner, category, description) values (DEFAULT, 'Muffin Hinge Container 6', 20, 'ALL', 'good');
-insert into item (item_id, name, owner, category, description) values (DEFAULT, 'Jolt Cola', 3, 'ALL', 'good');
-insert into item (item_id, name, owner, category, description) values (DEFAULT, 'Shirt', 2, 'Clothing', 'nice'); --pick
+insert into item (item_id, name, owner, category, description) values (DEFAULT, 'Ipad', 1, 'E-devices', 'good');
+insert into item (item_id, name, owner, category, description) values (DEFAULT, 'Laptop', 1, 'E-devices', 'good');
+insert into item (item_id, name, owner, category, description) values (DEFAULT, 'Kindle', 1, 'E-devices', 'good');
+insert into item (item_id, name, owner, category, description) values (DEFAULT, 'Bike', 1, 'ALL', 'good');
+insert into item (item_id, name, owner, category, description) values (DEFAULT, 'Air-con', 1, 'E-devices', 'good');
+insert into item (item_id, name, owner, category, description) values (DEFAULT, 'Ball', 1, 'ALL', 'good');
+insert into item (item_id, name, owner, category, description) values (DEFAULT, 'Earphones', 1, 'E-devices', 'good');
+insert into item (item_id, name, owner, category, description) values (DEFAULT, 'Gloves', 1, 'Clothing', 'good');
+insert into item (item_id, name, owner, category, description) values (DEFAULT, 'Coat', 1, 'Clothing', 'good');
+insert into item (item_id, name, owner, category, description) values (DEFAULT, 'Shirt', 1, 'Clothing', 'nice'); --pick
 insert into item (item_id, name, owner, category, description) values (DEFAULT, 'Cherries - Frozen', 3, 'ALL', 'good');
 insert into item (item_id, name, owner, category, description) values (DEFAULT, 'Soup Campbells Split Pea And Ham', 6, 'ALL', 'good');
 insert into item (item_id, name, owner, category, description) values (DEFAULT, 'Tequila Rose Cream Liquor', 17, 'ALL', 'good');
@@ -139,6 +137,14 @@ insert into post (post_id, title, item, start_time, end_time, description, deliv
 insert into post (post_id, title, item, start_time, end_time, description, delivery, availability) values (DEFAULT, 'good shoes', 21, '2018-03-21 18:47:58', '2018-11-18 05:06:38', 'Bqf good', false, false);
 insert into post (post_id, title, item, start_time, end_time, description, delivery, availability) values (DEFAULT, 'large bag', 31, '2017-10-28 05:18:54', '2018-11-22 15:12:24', 'Dva good', false, false);
 insert into post (post_id, title, item, start_time, end_time, description, delivery, availability) values (DEFAULT, 'cool SB shoes', 100, '2018-07-06 02:00:39', '2018-12-23 05:11:38', 'Jvb good', false, false);
+insert into post (post_id, title, item, start_time, end_time, description, delivery, availability) values (DEFAULT, 'Ipad', 2, '2018-08-26 16:25:22', '2018-11-10 18:56:11', 'Joq good', false, true);
+insert into post (post_id, title, item, start_time, end_time, description, delivery, availability) values (DEFAULT, 'Laptop', 3, '2018-08-03 18:52:48', '2018-12-15 09:39:44', 'Uml good', true, true);
+insert into post (post_id, title, item, start_time, end_time, description, delivery, availability) values (DEFAULT, 'Kindle', 4, '2018-12-16 23:59:29', '2018-12-29 20:04:46', 'Yda good', false, true);
+insert into post (post_id, title, item, start_time, end_time, description, delivery, availability) values (DEFAULT, 'Bike', 5, '2018-08-03 09:46:47', '2018-10-31 18:55:06', 'Sgk good', true, true);
+insert into post (post_id, title, item, start_time, end_time, description, delivery, availability) values (DEFAULT, 'Air-con', 6, '2018-08-29 02:32:47', '2018-12-11 16:08:45', 'Cki good', false, false);
+insert into post (post_id, title, item, start_time, end_time, description, delivery, availability) values (DEFAULT, 'Ball', 7, '2018-08-05 22:27:13', '2018-12-30 02:09:23', 'Snv good', false, false);
+insert into post (post_id, title, item, start_time, end_time, description, delivery, availability) values (DEFAULT, 'Earphones', 8, '2018-02-25 22:41:40', '2018-12-01 21:55:10', 'Sai good', true, false);
+insert into post (post_id, title, item, start_time, end_time, description, delivery, availability) values (DEFAULT, 'Gloves', 9, '2018-03-21 18:47:58', '2018-11-18 05:06:38', 'Bqf good', false, false);
 
 insert into bid (bidder, points, post) values (15, 1, 1);
 insert into bid (bidder, points, post) values (1, 2, 1);
@@ -170,6 +176,7 @@ insert into bid (bidder, points, post) values (15, 5, 6);
 insert into bid (bidder, points, post) values (2, 6, 6);
 insert into bid (bidder, points, post) values (3, 8, 7);
 insert into bid (bidder, points, post) values (17, 7, 7);
+insert into bid (bidder, points, post) values (16, 6, 7);
 insert into bid (bidder, points, post) values (18, 4, 7);
 insert into bid (bidder, points, post) values (16, 5, 7);
 insert into bid (bidder, points, post) values (3, 4, 8);
@@ -180,9 +187,22 @@ insert into bid (bidder, points, post) values (4, 4, 9);
 insert into bid (bidder, points, post) values (18, 5, 9);
 insert into bid (bidder, points, post) values (8, 6, 9);
 insert into bid (bidder, points, post) values (7, 7, 9);
+insert into bid (bidder, points, post) values (5, 5, 10);
 insert into bid (bidder, points, post) values (14, 3, 10);
 insert into bid (bidder, points, post) values (10, 10, 10);
 insert into bid (bidder, points, post) values (2, 13, 10); 
+insert into bid (bidder, points, post) values (13, 2, 11);
+insert into bid (bidder, points, post) values (20, 1, 11);
+insert into bid (bidder, points, post) values (4, 4, 12);
+insert into bid (bidder, points, post) values (18, 5, 12);
+insert into bid (bidder, points, post) values (8, 6, 13);
+insert into bid (bidder, points, post) values (7, 7, 14);
+insert into bid (bidder, points, post) values (5, 5, 15);
+insert into bid (bidder, points, post) values (14, 3, 15);
+insert into bid (bidder, points, post) values (10, 10, 16);
+insert into bid (bidder, points, post) values (2, 13, 17);
+insert into bid (bidder, points, post) values (10, 10, 17);
+insert into bid (bidder, points, post) values (2, 13, 18); 
 
 ALTER SEQUENCE loan_loan_id_seq RESTART WITH 1;
 
@@ -191,21 +211,19 @@ insert into loan (loan_id, bidder, post, start_time, end_time) values (DEFAULT, 
 insert into loan (loan_id, bidder, post, start_time, end_time) values (DEFAULT, 3, 8, '2018-03-21 18:47:58', '2018-11-18 05:06:38');
 insert into loan (loan_id, bidder, post, start_time, end_time) values (DEFAULT, 7, 9, '2017-10-28 05:18:54', '2018-11-22 15:12:24');
 insert into loan (loan_id, bidder, post, start_time, end_time) values (DEFAULT, 2, 10, '2018-07-06 02:00:39', '2018-12-23 05:11:38');
+insert into loan (loan_id, bidder, post, start_time, end_time) values (DEFAULT, 5, 15, '2018-08-05 22:27:13', '2018-12-30 02:09:23');
+insert into loan (loan_id, bidder, post, start_time, end_time) values (DEFAULT, 10, 16, '2018-02-25 22:41:40', '2018-12-01 21:55:10');
+insert into loan (loan_id, bidder, post, start_time, end_time) values (DEFAULT, 2, 17, '2018-03-21 18:47:58', '2018-11-18 05:06:38');
+insert into loan (loan_id, bidder, post, start_time, end_time) values (DEFAULT, 2, 18, '2017-10-28 05:18:54', '2018-11-22 15:12:24');
 
 ALTER SEQUENCE comment_comment_id_seq RESTART WITH 1;
 
-insert into comment (comment_id, loan, user_name, content, rating) values (DEFAULT, 1, 9, 'useful', 4);
+insert into comment (comment_id, loan, user_name, content, rating) values (DEFAULT, 1, 2, 'useful', 4);
 insert into comment (comment_id, loan, user_name, content, rating) values (DEFAULT, 2, 3, 'not nice', 2);
-insert into comment (comment_id, loan, user_name, content, rating) values (DEFAULT, 3, 9, 'quite good', 5);
-insert into comment (comment_id, loan, user_name, content, rating) values (DEFAULT, 4, 12, 'not small', 3);
-
-/* for testing purposes*/
-insert into post (post_id, title, item, start_time, end_time, description, delivery, availability) values (DEFAULT, 'mymysdfs', 66, '2018-07-06 02:00:39', '2018-12-23 05:11:38', 'Jvb good', false, true);
-insert into bid (bidder, points, post) values (15, 1, 11);
-insert into bid (bidder, points, post) values (1, 2, 11);
-insert into bid (bidder, points, post) values (11, 3, 11);
-insert into bid (bidder, points, post) values (5, 4, 11);
-insert into bid (bidder, points, post) values (19, 2, 11);
-insert into bid (bidder, points, post) values (13, 4, 11);
-insert into bid (bidder, points, post) values (16, 10, 11);
-
+insert into comment (comment_id, loan, user_name, content, rating) values (DEFAULT, 3, 3, 'quite good', 5);
+insert into comment (comment_id, loan, user_name, content, rating) values (DEFAULT, 4, 7, 'not small', 3);
+insert into comment (comment_id, loan, user_name, content, rating) values (DEFAULT, 5, 2, 'useful', 4);
+insert into comment (comment_id, loan, user_name, content, rating) values (DEFAULT, 6, 5, 'good', 4);
+insert into comment (comment_id, loan, user_name, content, rating) values (DEFAULT, 7, 10, 'quite good', 5);
+insert into comment (comment_id, loan, user_name, content, rating) values (DEFAULT, 8, 2, 'perfect', 5);
+insert into comment (comment_id, loan, user_name, content, rating) values (DEFAULT, 9, 2, 'small', 2);

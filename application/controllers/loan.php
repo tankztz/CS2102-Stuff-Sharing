@@ -18,7 +18,7 @@ class loan extends CI_Controller {
     public function index()
     {
         $data['loan'] = $this->loan_model->get_loan();
-        $data['title'] = 'ITEM';
+        $data['title'] = 'ALL LOANS';
     
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar_header', $data);

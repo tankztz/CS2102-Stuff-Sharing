@@ -4,6 +4,8 @@ class Loan_model extends CI_Model {
     public function __construct()
     {
         $this->load->database();
+        $this->load->model('item_model');
+        $this->load->model('post_model');
     }
 
     public function get_loan($id = FALSE)

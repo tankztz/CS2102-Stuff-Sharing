@@ -21,7 +21,7 @@ class users extends CI_Controller {
     public function index()
     {
         $data['users'] = $this->users_model->get_users();
-        $data['title'] = 'USER';
+        $data['title'] = 'ALL USER';
     
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar_header', $data);
@@ -110,7 +110,7 @@ class users extends CI_Controller {
         }
         else if ($datatype == "bid")
         {
-            $this->load->view('bid/button');
+            //$this->load->view('bid/button');
             $this->load->view('bid/index', $data);
         }
         else if ($datatype == "post")

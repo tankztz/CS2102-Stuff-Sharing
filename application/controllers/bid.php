@@ -21,7 +21,7 @@ class bid extends CI_Controller {
     public function index()
     {
         $data['bid'] = $this->bid_model->get_bid();
-        $data['title'] = 'ITEM';
+        $data['title'] = 'ALL BIDS';
     
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar_header', $data);

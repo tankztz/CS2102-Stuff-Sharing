@@ -26,20 +26,20 @@
 					<div id="logo">
 						<h1><a href="<?php echo base_url(); ?>/index.php">Shuli<span>ExchangeStation</span></a></h1>
 					</div>
-                                                <div id="top-nav">
-                                                        <ul>
-                                                                <li><a href="#">About</a></li>
-                                                                <li><a href="#">Contact</a></li>
-                                                                <li><a href="#"><?php echo "testbutton" ?></a></li>
-                                                                <?php if(!$this->session->userdata('logged_in')): ?>
-                                                                    <li><a href="<?php echo base_url(); ?>index.php/management/create">Register</a></li>
-                                                                    <li><a href="<?php echo base_url(); ?>index.php/management/login">Login</a></li>
-                                                                <?php else: ?>
-                                                                    <li><a href="<?php echo base_url(); ?>index.php/management/logout">Logout</a></li>
-                                                                    <li><a href="<?php echo base_url(); ?>index.php/users/current"><?php echo $this->session->userdata('username'); ?></a></li>
-                                                                <?php endif; ?>
-                                                        </ul>
-                                                </div>
+                        <div id="top-nav">
+                            <ul>
+                                <li><a href="#">About</a></li>
+                                <li><a href="#">Contact</a></li>
+                                <li><a href="#"><?php echo "testbutton" ?></a></li>
+                                <?php if(!$this->session->userdata('logged_in')): ?>
+                                    <li><a href="<?php echo base_url(); ?>index.php/management/create">Register</a></li>
+                                    <li><a href="<?php echo base_url(); ?>index.php/management/login">Login</a></li>
+                                <?php else: ?>
+                                    <li><a href="<?php echo base_url(); ?>index.php/management/logout">Logout</a></li>
+                                    <li><a href="<?php echo base_url(); ?>index.php/users/current"><?php echo $this->session->userdata('username'); ?></a></li>
+                                <?php endif; ?>
+                            </ul>
+                        </div>
 					<div class="clr"></div>
 				</div>
 			</header>

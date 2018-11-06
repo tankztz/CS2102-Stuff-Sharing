@@ -18,7 +18,7 @@ class item extends CI_Controller {
     public function index()
     {
         $data['item'] = $this->item_model->get_item();
-        $data['title'] = 'ITEM';
+        $data['title'] = 'ALL ITEM';
     
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar_header', $data);

@@ -18,7 +18,7 @@ class comment extends CI_Controller {
     public function index()
     {
         $data['comment'] = $this->comment_model->get_comment();
-        $data['title'] = 'ITEM';
+        $data['title'] = 'ALL COMMENTS';
     
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar_header', $data);

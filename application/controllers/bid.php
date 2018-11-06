@@ -99,7 +99,7 @@ class bid extends CI_Controller {
 
     public function view_bidunderpost($id = NULL)
     {       
-            $data['users_bid'] = $this->bid_model->get_bidunderpost($id);
+            $data['bid'] = $this->bid_model->get_bidunderpost($id);
             $data['title'] = 'bid available';
     
             $this->load->view('templates/header', $data);

@@ -57,8 +57,6 @@ WHERE ns.bidder = ".$id ;
         return $query->result_array();
     }
 
-
-    
     public function set_bid($id = NULL)
     {
         $this->load->helper('url');

@@ -37,7 +37,7 @@ class Post_model extends CI_Model {
             return NULL;
         }
 
-        $sql = "SELECT u.* FROM post p, item i, users u WHERE p.post_id = ".$post_id." AND p.item = i.item_id AND i.owner = u.user_id";
+        $sql = "SELECT DISTINCT u.* FROM post p, item i, users u WHERE p.post_id = ".$post_id." AND p.item = i.item_id AND i.owner = u.user_id";
         $query = $this->db->query($sql);
         return $query->result_array();
     }

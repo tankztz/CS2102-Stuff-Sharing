@@ -11,7 +11,7 @@
                     <p class="card-text"><?php echo $users_post['description']; ?></p>
                     <div class="row">
                     <a href="<?php echo site_url('post/'.$users_post['post_id']); ?>" class="btn btn-primary m-3">View Details</a>
-                    <?php if ($this->post_model->get_poster($users_post['post_id']) == $this->session->userdata('user_id')): ?>
+                    <?php if ($this->post_model->get_poster($users_post['post_id'])[0]['user_id'] == $this->session->userdata('user_id')): ?>
                         <a href="<?php echo site_url('bid/view_bidunderpost/'.$users_post['post_id']); ?>" class="btn btn-primary m-3">Choose Bidders</a>
                     <?php else: ?>
                         <a href="<?php echo site_url('bid/create/'.$users_post['post_id']); ?>" class="btn btn-primary m-3">Bid</a>

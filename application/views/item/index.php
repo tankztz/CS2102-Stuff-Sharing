@@ -11,7 +11,7 @@
                     <p class="card-text">category:<?php echo $users_item['category']; ?></p>
                     <p class="card-text"><?php echo $users_item['description']; ?></p>
                     <div class="row">
-                    <?php if ($users_post['owner'] == $this->session->userdata('user_id')): ?>
+                    <?php if ($users_item['owner'] == $this->session->userdata('user_id')): ?>
                         <a href="<?php echo site_url('post/'.$users_item['item_id']); ?>" class="btn btn-primary m-3">Update item(havnt finish)</a>
                     <?php else: ?>
                         <a href="<?php echo site_url('post/'.$users_item['item_id']); ?>" class="btn btn-primary m-3">View item(havnt finish)</a>

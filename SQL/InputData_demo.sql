@@ -33,7 +33,7 @@ insert into item (item_id, name, owner, category, description) values (DEFAULT, 
 insert into item (item_id, name, owner, category, description) values (DEFAULT, 'Earphones', 1, 'E-devices', 'good');
 insert into item (item_id, name, owner, category, description) values (DEFAULT, 'Gloves', 1, 'Clothing', 'good');
 insert into item (item_id, name, owner, category, description) values (DEFAULT, 'Coat', 1, 'Clothing', 'good');
-insert into item (item_id, name, owner, category, description) values (DEFAULT, 'Shirt', 1, 'Clothing', 'nice'); --pick
+insert into item (item_id, name, owner, category, description) values (DEFAULT, 'Shirt', 2, 'Clothing', 'nice'); --pick
 insert into item (item_id, name, owner, category, description) values (DEFAULT, 'Cherries - Frozen', 3, 'ALL', 'good');
 insert into item (item_id, name, owner, category, description) values (DEFAULT, 'Soup Campbells Split Pea And Ham', 6, 'ALL', 'good');
 insert into item (item_id, name, owner, category, description) values (DEFAULT, 'Tequila Rose Cream Liquor', 17, 'ALL', 'good');

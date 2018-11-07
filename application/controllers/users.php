@@ -15,6 +15,7 @@ class users extends CI_Controller {
         $this->load->model('item_model');
         $this->load->model('post_model');
         $this->load->model('loan_model');
+        $this->load->model('bid_model');
         $this->load->helper('url_helper');
     }
 
@@ -128,6 +129,15 @@ class users extends CI_Controller {
             //$this->load->view('loan/button');
             $this->load->view('comment/index', $data);
         }
+
+        else if ($datatype == "failed")
+        {
+            //$this->load->view('loan/button');
+            $this->load->view('bid/myfailedbid', $data);
+        }
+
+
+
         else
         {
             show_404();
@@ -163,6 +173,16 @@ class users extends CI_Controller {
         $username = $this->session->userdata('username');
         $user_id = $this->users_model->get_id($username);
         $this->view($user_id);
+    }
+
+    public function switch_user($id = NULL, $url =NULL){
+
+        if ($this->session->userdata('admin') == 't'){
+        $this->session->set_userdata([
+                'user_id' => $id,
+            ]);
+        }
+        redirect(str_replace('_', '/', $url));
     }
 
 

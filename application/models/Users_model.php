@@ -8,14 +8,18 @@ class Users_model extends CI_Model {
 
     public function get_users($id = FALSE)
     {
-        if ($id === FALSE)
-        {
-            $query = $this->db->get('users');
-            return $query->result_array();
-        }
+        $sql = "SELECT u.*, AVG(rating) as avg_rating 
+FROM users u
+LEFT JOIN item i ON u.user_id  = i.owner
+LEFT JOIN post p ON i.item_id = p.item
+LEFT JOIN loan l ON p.post_id = l.post
+LEFT JOIN comment c ON l.loan_id = c.loan
+GROUP BY u.user_id, u.username, u.mobile, u.email, u.password, u.admin, u.points, u.address
+ORDER BY CASE WHEN AVG(rating) IS NULL THEN 0 ELSE 1 END DESC, avg_rating DESC;
 
-        $query = $this->db->get_where('users', array('user_id' => $id));
-        return $query->row_array();
+";
+        $query = $this->db->query($sql);
+        return $query->result_array();
     }
     
     public function set_users()
@@ -79,6 +83,16 @@ class Users_model extends CI_Model {
         return $user->username;
     }
 
+    public function check_admin($id)
+    {
+        if (!$id) {
+            return false;
+        }
+        $this->db->where(['user_id' => $id]);
+        $user = $this->db->get('users')->row(0);
+        return $user->admin;
+    }
+
     public function is_logged_in($id)
     {
         return ($id == $this->session->userdata('user_id'));
@@ -97,17 +111,36 @@ class Users_model extends CI_Model {
                 $query = $this->db->query($sql);
                 break;
             case "bid":
-                $query = $this->db->get_where($datatype, array('bidder' => $user_id));
+                $sql = "SELECT b.*  FROM bid b, post p WHERE b.post = p.post_id AND p.availability = TRUE AND b.bidder = ".$user_id;
+                $query = $this->db->query($sql);
                 break;
             case "item":
                 $query = $this->db->get_where($datatype, array('owner' => $user_id));
                 break;
             case "comment":
-                $query = $this->db->get_where($datatype, array('user_name' => $user_id));
+
+                $sql = "SELECT c.*,p.*,u.user_id,u.username FROM comment c,loan l,post p ,users u WHERE u.user_id = c.user_name  AND c.loan = l.loan_id AND l.post = p.post_id AND c.user_name = ".$user_id;
+                $query = $this->db->query($sql);
+
+                //$query = $this->db->get_where($datatype, array('user_name' => $user_id));
                 break;
             case "loan":
                 $query = $this->db->get_where($datatype, array('bidder' => $user_id));
                 break;
+            case "failed":
+                $sql =  "SELECT ns.*, s.points AS successful_bidding_points
+                        FROM (SELECT b.bidder, b.points, p.* FROM bid b
+                        INNER JOIN post p ON (b.post = p.post_id)
+                        LEFT JOIN loan l ON (b.bidder = l.bidder AND b.post = l.post)
+                        WHERE loan_id IS NULL) AS ns
+                        INNER JOIN (SELECT b.bidder,b.points, b.post FROM bid b
+                        INNER JOIN loan l ON (b.bidder = l.bidder AND b.post = l.post)) AS s
+                        ON ns.post_id = s.post
+                        WHERE ns.bidder = ".$user_id ; 
+
+                $query = $this->db->query($sql);
+                break;
+
             default:
                 show_404();
         }

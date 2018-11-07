@@ -120,7 +120,7 @@ class bid extends CI_Controller {
             $this->load->view('templates/header', $data);
             $this->load->view('templates/sidebar_header', $data);
             $this->load->view('bid/button');
-            $this->load->view('templates/sidebar_footer');
+            $this->load->view('templates/sidebar_footer_users');
             $this->load->view('templates/footer');
     }
 

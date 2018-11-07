@@ -11,6 +11,7 @@ class comment extends CI_Controller {
         }
         else{
             $this->load->model('comment_model');
+            $this->load->model('users_model');
             $this->load->helper('url_helper');
         }
     }
@@ -68,5 +69,11 @@ class comment extends CI_Controller {
             $data['title'] = 'SUCCESS';
             $this->load->view('comment/create', $data);
         }
+    }
+
+    public function delete($id = NULL)
+    {
+        $this->comment_model->delete_comment($id);
+        redirect('users/current/comment');
     }
 }

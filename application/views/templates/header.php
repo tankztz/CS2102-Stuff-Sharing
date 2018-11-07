@@ -7,6 +7,9 @@
         <link rel="stylesheet" href="<?php echo base_url(); ?>/asserts/css/templetebase.css">
         <link rel="stylesheet" href="<?php echo base_url(); ?>/asserts/css/all.min.css">
         <link rel="stylesheet" href="<?php echo base_url(); ?>/asserts/css/bootstrap.min.css">
+        <script src="<?php echo base_url(); ?>/asserts/js/jquery-3.3.1.min.js"></script>
+        <script src="<?php echo base_url(); ?>/asserts/js/bootstrap.min.js"></script>
+
 		<script type="text/javascript">
 			/* =============================
 			This script generates sample text for the body content. 
@@ -36,7 +39,7 @@
                                     <li><a href="<?php echo base_url(); ?>index.php/management/login">Login</a></li>
                                 <?php else: ?>
                                     <li><a href="<?php echo base_url(); ?>index.php/management/logout">Logout</a></li>
-                                    <li><a href="<?php echo base_url(); ?>index.php/users/current"><?php echo $this->session->userdata('username'); ?></a></li>
+                                    <li><a href="<?php echo base_url(); ?>index.php/users/current/item"><?php echo $this->session->userdata('username'); ?></a></li>
                                 <?php endif; ?>
                             </ul>
                         </div>

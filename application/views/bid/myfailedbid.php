@@ -2,7 +2,7 @@
 
 <div class="container">
 <div class="row">
-<?php foreach ($myfailedbid as $users_bid): ?>
+<?php foreach ($failed as $users_bid): ?>
 		<div class="col-sm-6">
             <div class="card m-3">
                 <div class="card-body">

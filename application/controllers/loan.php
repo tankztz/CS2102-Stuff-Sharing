@@ -11,6 +11,7 @@ class loan extends CI_Controller {
         }
         else{
             $this->load->model('loan_model');
+            $this->load->model('users_model');
             $this->load->helper('url_helper');
         }
     }

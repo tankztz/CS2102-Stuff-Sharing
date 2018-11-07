@@ -11,22 +11,13 @@ class post extends CI_Controller {
         }
         else{
             $this->load->model('post_model');
+            $this->load->model('users_model');
+            $this->load->model('bid_model');
             $this->load->model('item_model');
             $this->load->helper('url_helper');
         }
     }
 
-    public function index()
-    {
-        $data['post'] = $this->post_model->get_post();
-        $data['title'] = 'ALL POSTS';
-    
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar_header', $data);
-        $this->load->view('post/index', $data);
-        $this->load->view('templates/sidebar_footer');
-        $this->load->view('templates/footer');
-    }
 
     public function view($id = NULL)
     {
@@ -80,7 +71,7 @@ class post extends CI_Controller {
     }
 
 
-    public function allposts()
+    public function index()
     {
         //TODO: handle datatype, display different kind of items on current user page
         
@@ -93,30 +84,8 @@ class post extends CI_Controller {
         $this->load->view('templates/sidebar_header', $data);
         $this->load->view('post/button');
         $this->load->view('post/index', $data);
-        $this->load->view('templates/sidebar_footer_users');
+        $this->load->view('templates/sidebar_footer');
         $this->load->view('templates/footer');
     }
     
-    public function myposts()
-    {
-        //TODO: handle datatype, display different kind of items on current user page
-        
-        $user_id = $this->session->userdata('user_id');
-        
-        $data['mypost'] = $this->post_model->get_my_post($user_id);
-        
-        if (empty($data['mypost']))
-        {
-            //TODO: general message page
-        }
-
-        $data['title'] = "My post";
-    
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar_header', $data);
-        $this->load->view('post/button');
-        $this->load->view('post/myindex', $data);
-        $this->load->view('templates/sidebar_footer_users');
-        $this->load->view('templates/footer');
-    }
 }

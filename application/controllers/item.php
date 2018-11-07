@@ -11,6 +11,7 @@ class item extends CI_Controller {
         }
         else{
             $this->load->model('item_model');
+            $this->load->model('users_model');
             $this->load->helper('url_helper');
         }
     }

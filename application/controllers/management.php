@@ -35,11 +35,12 @@ class management extends CI_Controller {
                 $this->session->set_userdata([
                     'username' => $user->username,
                     'user_id' => $user_id,
-                    'logged_in' => true,
+                    'logged_in' => TRUE,
+                    'admin' => FALSE
             ]);
         }
 
-            redirect('post/allposts');
+            redirect('post/index');
         }
     }
 
@@ -66,18 +67,22 @@ class management extends CI_Controller {
                 $this->session->set_flashdata('flash_danger', 'Invalid username or password');
                 return redirect('management/login');
             }
+
             $this->session->set_userdata([
                 'username' => $username,
                 'user_id' => $user_id,
-                'logged_in' => true,
+                'logged_in' => TRUE,
+                'admin' => $this->users_model->check_admin($user_id)
             ]);
+
             $this->session->set_flashdata('flash_success', 'You are now logged in');
-            redirect('post/allposts');
+            redirect('post/index');
         }
     }
         public function logout()
     {   
         $session_items = array('username', 'user_id', 'logged_in');
         $this->session->unset_userdata($session_items);
+        redirect('management/login');
     }
     }

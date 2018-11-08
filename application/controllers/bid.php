@@ -32,9 +32,9 @@ class bid extends CI_Controller {
 
     public function view($id = NULL)
     {
-        $data['bid_bid'] = $this->bid_model->get_bid($id);
+        $data['bid'] = $this->bid_model->get_bid($id);
     
-        if (empty($data['bid_bid']))
+        if (empty($data['bid']))
         {
             show_404();
         }

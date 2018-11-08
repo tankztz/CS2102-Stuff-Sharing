@@ -8,18 +8,23 @@ class Users_model extends CI_Model {
 
     public function get_users($id = FALSE)
     {
-        $sql = "SELECT u.*, AVG(rating) as avg_rating 
-FROM users u
-LEFT JOIN item i ON u.user_id  = i.owner
-LEFT JOIN post p ON i.item_id = p.item
-LEFT JOIN loan l ON p.post_id = l.post
-LEFT JOIN comment c ON l.loan_id = c.loan
-GROUP BY u.user_id, u.username, u.mobile, u.email, u.password, u.admin, u.points, u.address
-ORDER BY CASE WHEN AVG(rating) IS NULL THEN 0 ELSE 1 END DESC, avg_rating DESC;
+        if ($id === FALSE)
+        {
+            $sql = "SELECT u.*, AVG(rating) as avg_rating 
+                FROM users u
+                LEFT JOIN item i ON u.user_id  = i.owner
+                LEFT JOIN post p ON i.item_id = p.item
+                LEFT JOIN loan l ON p.post_id = l.post
+                LEFT JOIN comment c ON l.loan_id = c.loan
+                GROUP BY u.user_id, u.username, u.mobile, u.email, u.password, u.admin, u.points, u.address
+                ORDER BY CASE WHEN AVG(rating) IS NULL THEN 0 ELSE 1 END DESC, avg_rating DESC;
+                ";
+            $query = $this->db->query($sql);
+            return $query->result_array();
+        }
 
-";
-        $query = $this->db->query($sql);
-        return $query->result_array();
+        $query = $this->db->get_where('users', array('user_id' => $id));
+        return $query->row_array();
     }
     
     public function set_users()

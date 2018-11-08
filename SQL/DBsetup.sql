@@ -5,7 +5,7 @@ mobile VARCHAR(64) NOT NULL,
 email VARCHAR(64) UNIQUE,
 password VARCHAR(64) NOT NULL,
 admin BOOLEAN NOT NULL,
-points NUMERIC,
+points NUMERIC DEFAULT 20 CHECK (points >= 0),
 address VARCHAR(64));
 
 
@@ -13,7 +13,7 @@ CREATE TABLE item(
 item_id SERIAL PRIMARY KEY ,
 name VARCHAR(64) NOT NULL,
 owner INTEGER REFERENCES users(user_id) ON DELETE CASCADE,
-category VARCHAR(64) NOT NULL,
+category VARCHAR(64) NOT NULL DEFAULT 'ALL',
 description VARCHAR(64),
 photo bytea);
 
@@ -32,7 +32,7 @@ availability BOOLEAN);
 CREATE TABLE bid(
 bidder INTEGER NOT NULL REFERENCES users(user_id) ON DELETE CASCADE,
 post INTEGER NOT NULL REFERENCES post(post_id) ON DELETE CASCADE,
-points NUMERIC,
+points NUMERIC CHECK (points >= 0),
 create_time TIMESTAMP DEFAULT NOW(),
 PRIMARY KEY(bidder, post));
 

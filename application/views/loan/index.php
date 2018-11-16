@@ -12,7 +12,7 @@
                 <div class="row">
                 <a href="<?php echo site_url('loan/'.$users_loan['loan_id']); ?>" class="btn btn-primary m-3">View Details</a>
                 <a href="<?php echo site_url('post/'.$users_loan['post']); ?>" class="btn btn-primary m-3">View Post</a>
-                <a href="<?php echo site_url('users/'.$users_loan['bidder']); ?>" class="btn btn-primary m-3">View Owner</a>
+                <a href="<?php echo site_url('comment/create/'.$users_loan['loan_id']); ?>" class="btn btn-primary m-3">Comment</a>
                 </div>
             </div>
         </div>

@@ -15,16 +15,14 @@ class Comment_model extends CI_Model {
         return $query->result_array();
     }
     
-    public function set_comment()
+    public function set_comment($loan_id)
     {
         $this->load->helper('url');
 
-
-
         $data = array(
 
-        'loan' => $this->input->post('loan'),
-        'user_name' => $this->input->post('user_name'),
+        'loan' => $loan_id,
+        'user_name' => $this->session->userdata('user_id'),
         'rating' => $this->input->post('rating'),
         'content' => $this->input->post('content'),
 

@@ -92,6 +92,7 @@ $route['post'] = 'post';
 
 $route['comment/index'] = 'comment/index';
 $route['comment/create'] = 'comment/create';
+$route['comment/create/(:any)'] = 'comment/create/$1';
 $route['comment/(:any)'] = 'comment/view/$1';
 $route['comment'] = 'comment';
 

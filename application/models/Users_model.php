@@ -201,5 +201,17 @@ class Users_model extends CI_Model {
             $this->db->where(['user_id' => $bid['bidder']]);
             $this->db->update('users', $data);
         }
+
+        $sql = "SELECT * FROM bid b WHERE b.post = ".$post_id. "AND  b.bidder = ".$user_id;
+        $query = $this->db->query($sql);
+
+        foreach($query->result_array() as $bid){
+            $points = $this->get_points() + $bid['points'];
+            $data = array(
+            'points' => $points
+            );
+            $this->db->where(['user_id' => $this->session->userdata('user_id')]);
+            $this->db->update('users', $data);
+        }
     }
 }

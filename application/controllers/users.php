@@ -101,6 +101,10 @@ class users extends CI_Controller {
         }
 
         $data['title'] = "My ".$datatype;
+
+        if($datatype == "bid"){
+        $data['title'] = 'My points:'.strval($this->users_model->get_points_from_id($user_id));
+        }
     
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar_header', $data);

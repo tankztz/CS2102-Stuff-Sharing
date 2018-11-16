@@ -59,8 +59,7 @@ IF (SELECT count(*)
 	FROM post p
 	WHERE p.item = NEW.item
 	AND p.availability = 'True')  >= 1
-Then RAISE NOTICE 'This item is being posted now.';
-RETURN NULL;
+Then RETURN CAST('This item is being posted now.' as int);
 ELSE 
 RETURN NEW;
 END IF;
@@ -82,8 +81,7 @@ IF (SELECT count(*)
 	AND p.availability = 'True'
 	AND u.user_id = (SELECT i2.owner FROM item i2 WHERE NEW.item = i2.item_id)
 	GROUP BY u.user_id)  >= 10
-Then RAISE NOTICE 'You can only have at most 10 available posts in total.';
-RETURN NULL;
+Then RETURN CAST('You can only have at most 10 available posts in total.' as int);
 ELSE 
 RETURN NEW;
 END IF;

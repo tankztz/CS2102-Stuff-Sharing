@@ -51,3 +51,46 @@ user_name INTEGER NOT NULL REFERENCES users(user_id) ON DELETE CASCADE,
 content VARCHAR(200),
 rating NUMERIC NOT NULL CHECK (rating>=0 AND rating<=5));
 
+-- Trigger Part
+CREATE OR REPLACE FUNCTION check_error()
+RETURNS TRIGGER AS $$
+BEGIN
+IF (SELECT count(*)
+	FROM post p
+	WHERE p.item = NEW.item
+	AND p.availability = 'True')  >= 1
+Then RAISE NOTICE 'This item is being posted now.';
+RETURN NULL;
+ELSE 
+RETURN NEW;
+END IF;
+END; $$ LANGUAGE PLPGSQL;
+
+CREATE TRIGGER post_insert
+BEFORE INSERT
+ON post
+FOR EACH ROW
+EXECUTE PROCEDURE check_error();
+
+CREATE OR REPLACE FUNCTION user_post_error()
+RETURNS TRIGGER AS $$
+BEGIN
+IF (SELECT count(*)
+	FROM post p, item i, users u
+	WHERE p.item = i.item_id
+	AND i.owner = u.user_id
+	AND p.availability = 'True'
+	AND u.user_id = (SELECT i2.owner FROM item i2 WHERE NEW.item = i2.item_id)
+	GROUP BY u.user_id)  >= 10
+Then RAISE NOTICE 'You can only have at most 10 available posts in total.';
+RETURN NULL;
+ELSE 
+RETURN NEW;
+END IF;
+END; $$ LANGUAGE PLPGSQL;
+
+CREATE TRIGGER too_many_post
+BEFORE INSERT
+ON post
+FOR EACH ROW
+EXECUTE PROCEDURE user_post_error();

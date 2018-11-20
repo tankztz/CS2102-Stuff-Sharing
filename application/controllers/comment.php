@@ -11,6 +11,7 @@ class comment extends CI_Controller {
         }
         else{
             $this->load->model('comment_model');
+            $this->load->model('users_model');
             $this->load->helper('url_helper');
         }
     }
@@ -18,7 +19,7 @@ class comment extends CI_Controller {
     public function index()
     {
         $data['comment'] = $this->comment_model->get_comment();
-        $data['title'] = 'ITEM';
+        $data['title'] = 'ALL COMMENTS';
     
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar_header', $data);
@@ -44,16 +45,15 @@ class comment extends CI_Controller {
     }
 
     
-    public function create()
+    public function create($loan_id)
     {
         $this->load->helper('form');
         $this->load->library('form_validation');
 
         $data['title'] = 'Register a comment';
+        $data['id'] = $loan_id;
 
-        $this->form_validation->set_rules('user_name', 'user_name', 'required');
         $this->form_validation->set_rules('rating', 'rating', 'required');
-        $this->form_validation->set_rules('loan', 'loan', 'required');
 
         if ($this->form_validation->run() === FALSE)
         {
@@ -64,9 +64,14 @@ class comment extends CI_Controller {
         }
         else
         {
-            $this->comment_model->set_comment();
-            $data['title'] = 'SUCCESS';
-            $this->load->view('comment/create', $data);
+            $this->comment_model->set_comment($loan_id);
+            redirect('users/current/comment');
         }
+    }
+
+    public function delete($id = NULL)
+    {
+        $this->comment_model->delete_comment($id);
+        redirect('users/current/comment');
     }
 }

@@ -2,15 +2,13 @@
 
 <?php echo validation_errors(); ?>
 
-<?php echo form_open('comment/create'); ?>
+<?php echo form_open('comment/create/'.$id); ?>
 
     <div class="form-style-5">
         <form>
             <fieldset>
                 <legend><span class="number">1</span> Required Info</legend>
-                <input type="text" name="loan" placeholder="loan id *">
-                <input type="text" name="user_name" placeholder="user id *">
-                <input type="text" name="rating" placeholder="1-5 *">
+                <input type="number" name="rating" placeholder="1-5 *">
                 <legend><span class="number">2</span> Optional Info</legend>
                 <input type="text" name="content" placeholder="your comment">
             </fieldset>

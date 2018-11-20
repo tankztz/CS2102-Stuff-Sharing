@@ -4,6 +4,8 @@ class Loan_model extends CI_Model {
     public function __construct()
     {
         $this->load->database();
+        $this->load->model('item_model');
+        $this->load->model('post_model');
     }
 
     public function get_loan($id = FALSE)
@@ -18,20 +20,27 @@ class Loan_model extends CI_Model {
         return $query->row_array();
     }
     
-    public function set_loan()
+    public function get_my_loan($user_id = FALSE)
+    {
+        if ($user_id === FALSE)
+        {
+            return NULL;
+        }
+
+        $sql = "SELECT p.* FROM loan l,post p WHERE l.bidder = ".$user_id."AND l.post = p.post_id";
+        $query = $this->db->query($sql);
+        return $query->result_array();
+    }
+
+    public function set_loan($post_id = NULL , $user_id = NULL)
     {
         $this->load->helper('url');
-
-        $status = 1;
-        $start_time = '2018-10-6';
         $end_time = '2018-10-30';
 
         $data = array(
 
-        'post' => $this->input->post('post'),
-        'bid' => $this->input->post('bid'),
-        'status' => $status,
-        'start_time' => $start_time,
+        'post' => $post_id,
+        'bidder' => $user_id,
         'end_time' => $end_time,
         );
 

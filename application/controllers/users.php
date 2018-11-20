@@ -4,14 +4,25 @@ class users extends CI_Controller {
     public function __construct()
     {
         parent::__construct();
+
+        if (!$this->session->userdata('logged_in')) {
+            $this->session->set_flashdata('flash_danger', 'Please login to view this page');
+            redirect('management/login');
+        }
+
+
         $this->load->model('users_model');
+        $this->load->model('item_model');
+        $this->load->model('post_model');
+        $this->load->model('loan_model');
+        $this->load->model('bid_model');
         $this->load->helper('url_helper');
     }
 
     public function index()
     {
         $data['users'] = $this->users_model->get_users();
-        $data['title'] = 'USER';
+        $data['title'] = 'ALL USER';
     
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar_header', $data);
@@ -32,74 +43,152 @@ class users extends CI_Controller {
         $data['title'] = $data['users_item']['username'];
     
         $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar_header', $data);
         $this->load->view('users/view', $data);
+        $this->load->view('templates/sidebar_footer_users');
         $this->load->view('templates/footer');
     }
 
-    
-    public function create()
+    public function allposts()
     {
-        $this->load->helper('form');
-        $this->load->library('form_validation');
+        //TODO: handle datatype, display different kind of items on current user page
+        
+        
+        $data['post'] = $this->post_model->get_post();
 
-        $data['title'] = 'Register a users item';
+        $data['title'] = 'All posts';
+    
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar_header', $data);
+        $this->load->view('post/button');
+        $this->load->view('post/index', $data);
+        $this->load->view('templates/sidebar_footer_users');
+        $this->load->view('templates/footer');
+    }
 
-        $this->form_validation->set_rules('username', 'username', 'required');
-        $this->form_validation->set_rules('mobile', 'mobile', 'required');
-        $this->form_validation->set_rules('email', 'email', 'required');
-        $this->form_validation->set_rules('password', 'password', 'required');
-
-        if ($this->form_validation->run() === FALSE)
+    public function myposts()
+    {
+        //TODO: handle datatype, display different kind of items on current user page
+        
+        $user_id = $this->session->userdata('user_id');
+        
+        $data['mypost'] = $this->post_model->get_my_post($user_id);
+        
+        if (empty($data['mypost']))
         {
-            $this->load->view('templates/header', $data);
-            $this->load->view('users/create');
-            $this->load->view('templates/footer');
-
+            //TODO: general message page
         }
+
+        $data['title'] = "My post";
+    
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar_header', $data);
+        $this->load->view('post/button');
+        $this->load->view('post/myindex', $data);
+        $this->load->view('templates/sidebar_footer_users');
+        $this->load->view('templates/footer');
+    }
+
+    public function mydata($datatype = NULL)
+    {
+        $user_id = $this->session->userdata('user_id');
+        
+        $data[$datatype] = $this->users_model->get_my_related($user_id, $datatype);
+        
+        if (empty($data[$datatype]))
+        {
+            //TODO: general message page
+        }
+
+        $data['title'] = "My ".$datatype;
+
+        if($datatype == "bid"){
+        $data['title'] = 'My points:'.strval($this->users_model->get_points_from_id($user_id));
+        }
+    
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar_header', $data);
+        if ($datatype == "item")
+        {
+            $this->load->view('item/button');
+            $this->load->view('item/index', $data);
+        }
+        else if ($datatype == "bid")
+        {
+            //$this->load->view('bid/button');
+            $this->load->view('bid/index', $data);
+        }
+        else if ($datatype == "post")
+        {
+            $this->load->view('post/button');
+            $this->load->view('post/index', $data);
+        }
+        else if ($datatype == "loan")
+        {
+            //$this->load->view('loan/button');
+            $this->load->view('loan/index', $data);
+        }
+        else if ($datatype == "comment")
+        {
+            //$this->load->view('loan/button');
+            $this->load->view('comment/index', $data);
+        }
+
+        else if ($datatype == "failed")
+        {
+            //$this->load->view('loan/button');
+            $this->load->view('bid/myfailedbid', $data);
+        }
+
+
+
         else
-        {   
-            $user = $this->users_model->set_users();
-            if ($user) {
-                $this->session->set_flashdata('flash_success', 'Your account has been created. You are now signed in.');
-                $this->session->set_userdata([
-                    'username' => $user->username,
-                    'logged_in' => true,
+        {
+            show_404();
+        }
+        $this->load->view('templates/sidebar_footer_users');
+        $this->load->view('templates/footer');
+    }
+
+
+    public function myloan()
+    {
+        //TODO: handle datatype, display different kind of items on current user page
+        $user_id = $this->session->userdata('user_id');
+        
+        $data['myloan'] = $this->loan_model->get_my_loan($user_id);
+        
+        if (empty($data['myloan']))
+        {
+            //TODO: general message page
+        }
+
+        $data['title'] = "My loan";
+    
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar_header', $data);
+        $this->load->view('loan/myindex', $data);
+        $this->load->view('templates/sidebar_footer_users');
+        $this->load->view('templates/footer');
+    }
+
+    public function current()
+    {   
+        $username = $this->session->userdata('username');
+        $user_id = $this->users_model->get_id($username);
+        $this->view($user_id);
+    }
+
+    public function switch_user($id = NULL, $url =NULL){
+
+        if ($this->session->userdata('admin') == 't'){
+        $this->session->set_userdata([
+                'user_id' => $id,
             ]);
         }
-
-            redirect('post/index');
-        }
+        redirect(str_replace('_', '/', $url));
     }
 
-    public function login()
-    {   
-        $data['title'] = 'Log In';
 
-        $this->form_validation->set_rules('password', 'password', 'required');
-        $this->form_validation->set_rules('username', 'username', 'required');
-
-        if ($this->form_validation->run() === FALSE)
-        {
-            $this->load->view('templates/header', $data);
-            $this->load->view('users/login');
-            $this->load->view('templates/footer');
-
-        }
-
-        else{
-        $username = $this->input->post('username');
-        $password = $this->input->post('password');
-        $user_id = $this->users_model->login_user($username, $password);
-        if (!$user_id) {
-            $this->session->set_flashdata('flash_danger', 'Invalid username or password');
-            return redirect('users/login');
-        }
-        $this->session->set_userdata([
-            'username' => $username,
-            'logged_in' => true,
-        ]);
-        $this->session->set_flashdata('flash_success', 'You are now logged in');
-        redirect('post/index');
-    }
-    }
+    
 }

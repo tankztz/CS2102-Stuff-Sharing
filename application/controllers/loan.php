@@ -11,6 +11,7 @@ class loan extends CI_Controller {
         }
         else{
             $this->load->model('loan_model');
+            $this->load->model('users_model');
             $this->load->helper('url_helper');
         }
     }
@@ -18,7 +19,7 @@ class loan extends CI_Controller {
     public function index()
     {
         $data['loan'] = $this->loan_model->get_loan();
-        $data['title'] = 'ITEM';
+        $data['title'] = 'ALL LOANS';
     
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar_header', $data);
@@ -67,5 +68,26 @@ class loan extends CI_Controller {
             $data['title'] = 'SUCCESS';
             $this->load->view('loan/create', $data);
         }
+    }
+
+    public function myloan()
+    {
+        //TODO: handle datatype, display different kind of items on current user page
+        $user_id = $this->session->userdata('user_id');
+        
+        $data['myloan'] = $this->loan_model->get_my_loan($user_id);
+        
+        if (empty($data['myloan']))
+        {
+            //TODO: general message page
+        }
+
+        $data['title'] = "My loan";
+    
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar_header', $data);
+        $this->load->view('loan/myindex', $data);
+        $this->load->view('templates/sidebar_footer_users');
+        $this->load->view('templates/footer');
     }
 }

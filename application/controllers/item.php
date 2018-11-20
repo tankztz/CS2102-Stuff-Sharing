@@ -7,10 +7,11 @@ class item extends CI_Controller {
 
         if (!$this->session->userdata('logged_in')) {
             $this->session->set_flashdata('flash_danger', 'Please login to view this page');
-            redirect('users/create');
+            redirect('management/login');
         }
         else{
             $this->load->model('item_model');
+            $this->load->model('users_model');
             $this->load->helper('url_helper');
         }
     }
@@ -18,7 +19,7 @@ class item extends CI_Controller {
     public function index()
     {
         $data['item'] = $this->item_model->get_item();
-        $data['title'] = 'ITEM';
+        $data['title'] = 'ALL ITEM';
     
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar_header', $data);
@@ -43,6 +44,52 @@ class item extends CI_Controller {
         $this->load->view('templates/footer');
     }
 
+    public function view_mine($user_id)
+    {
+        if (empty($data['item_item']))
+        {
+            redirect('users/login');
+        }
+
+        $data['item_item'] = $this->item_model->get_my_item($user_id);
+        
+        if (empty($data['item_item']))
+        {
+            //TODO: general message page
+        }
+
+        $data['title'] = $data['item_item']['name'];
+    
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar_header', $data);
+        $this->load->view('item/button');
+        $this->load->view('item/view', $data);
+        $this->load->view('templates/sidebar_footer_users');
+        $this->load->view('templates/footer');
+    }
+
+    public function myitem()
+    {
+        //TODO: handle datatype, display different kind of items on current user page
+        
+        $user_id = $this->session->userdata('user_id');
+        
+        $data['item_item'] = $this->item_model->get_my_item($user_id);
+        
+        if (empty($data['item_item']))
+        {
+            //TODO: general message page
+        }
+
+        $data['title'] = "My item";
+    
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar_header', $data);
+        $this->load->view('item/button');
+        $this->load->view('item/view', $data);
+        $this->load->view('templates/sidebar_footer_users');
+        $this->load->view('templates/footer');
+    }
     
     public function create()
     {
@@ -53,7 +100,7 @@ class item extends CI_Controller {
 
         $this->form_validation->set_rules('itemname', 'itemname', 'required');
         $this->form_validation->set_rules('category', 'category', 'required');
-        $this->form_validation->set_rules('owner', 'owener', 'required');
+
 
         if ($this->form_validation->run() === FALSE)
         {
@@ -66,7 +113,15 @@ class item extends CI_Controller {
         {
             $this->item_model->set_item();
             $data['title'] = 'SUCCESS';
+            $this->load->view('templates/header', $data);
             $this->load->view('item/create', $data);
+            $this->load->view('templates/footer');
         }
+    }
+
+    public function delete($id = NULL)
+    {
+        $this->item_model->delete_item($id);
+        redirect('users/current/item');
     }
 }

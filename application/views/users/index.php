@@ -1,14 +1,24 @@
-<h2><?php echo $title; ?></h2>
+
+<h2 class="text-center"><?php echo $title; ?></h2>
+
+
+<div class="container">
+<div class="row">
 
 <?php foreach ($users as $users_item): ?>
+		<div class="col-sm-6">
+            <div class="card m-3">
+                <div class="card-body">
+                    <h4 class="card-title"><?php echo $users_item['username']; ?></h4>
+                    <p class="card-text">mobile:<?php echo $users_item['mobile']; ?></p>
+                    <p class="card-text">email:<?php echo $users_item['email']; ?></p>
+                    <p class="card-text">address:<?php echo $users_item['address']; ?></p>
+                    <p class="card-text">rating:<?php echo $users_item['avg_rating']; ?></p>
 
-        <h3><?php echo $users_item['username']; ?></h3>
-        <div class="main">
-                <?php echo $users_item['email']; ?>
-                <?php echo $users_item['points']; ?>
-                <?php echo $users_item['address']; ?>
+                </div>
+            </div>
         </div>
-        <p><a href="<?php echo site_url('users/'.$users_item['user_id']); ?>">View Details</a></p>
-        <p><?php echo site_url('users/'.$users_item['user_id']); ?></p>
 
 <?php endforeach; ?>
+</div>
+</div>

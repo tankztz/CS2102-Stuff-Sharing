@@ -14,4 +14,4 @@ http://localhost/CS2102-Stuff-Sharing/index.php/news
 ## Entity-relationship Diagram
 ![Alt text](doc/resource/ERDiagram.png?raw=true "ER Diagram")
 
-Read [this report](https://github.com/tankztz/CS2102-Stuff-Sharing/blob/master/CS2102%20project.pdf) for details and screenshots
+Read [this report](https://github.com/tankztz/CS2102-Stuff-Sharing/blob/master/CS2102-Stuffsharing-Report-Group68.pdf) for details and screenshots
